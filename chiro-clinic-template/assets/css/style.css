@@ -107,11 +107,37 @@ h1, h2, h3, h4, h5, h6, .font-display {
 
 /* ---------- Cards ---------- */
 .card-hover {
-  transition: transform .35s ease, box-shadow .35s ease;
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+  will-change: transform;
 }
 .card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 24px 48px -16px rgba(15, 47, 44, 0.22);
+  transform: perspective(900px) rotateX(3deg) rotateY(-2deg) translateY(-8px) scale(1.015);
+  box-shadow: 0 30px 60px -18px rgba(15, 47, 44, 0.28);
+}
+
+/* ---------- Reusable hover / 3D helpers ---------- */
+.tilt-hover {
+  transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease;
+}
+.tilt-hover:hover {
+  transform: perspective(900px) rotateX(4deg) rotateY(4deg) translateY(-6px);
+  box-shadow: 0 26px 52px -18px rgba(15, 47, 44, 0.3);
+}
+.icon-pop {
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1), background-color .3s ease, color .3s ease;
+}
+.group:hover .icon-pop {
+  transform: scale(1.15) rotate(-6deg);
+}
+.btn-3d {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.btn-3d:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px -10px rgba(15, 47, 44, 0.38);
+}
+.btn-3d:active {
+  transform: translateY(-1px);
 }
 
 /* ---------- Fade/slide-in animation ---------- */
@@ -246,4 +272,6 @@ select:focus-visible {
 }
 @media (prefers-reduced-motion: reduce) {
   .auth-float-badge, .auth-3d-card { animation: none; transition: none; }
+  .card-hover:hover, .tilt-hover:hover, .btn-3d:hover { transform: translateY(-4px); }
+  .icon-pop, .group:hover .icon-pop { transition: none; }
 }

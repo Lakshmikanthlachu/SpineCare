@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=9">
+  <link rel="stylesheet" href="assets/css/style.css?v=9">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -175,7 +175,9 @@
   <section class="py-20 lg:py-28">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-14">
       <article class="lg:col-span-2 reveal">
-        <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1040" alt="Person practicing correct posture at a desk" class="rounded-3xl shadow-xl w-full object-cover aspect-[16/9]" loading="lazy" />
+        <div class="tilt-hover rounded-3xl overflow-hidden">
+          <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1040" alt="Person practicing correct posture at a desk" class="rounded-3xl shadow-xl w-full object-cover aspect-[16/9] transition-transform duration-500 hover:scale-105" loading="lazy" />
+        </div>
 
         <div class="flex items-center gap-4 mt-8 text-sm text-slate-500">
           <span class="flex items-center gap-2"><i class="fa-solid fa-user-doctor text-teal-600"></i>Dr. Elias Novak</span>
@@ -227,8 +229,8 @@
 
         <!-- Comments -->
         <div class="mt-14 border-t border-slate-100 dark:border-slate-800 pt-10">
-          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-6">Comments (2)</h3>
-          <div class="space-y-6">
+          <h3 class="font-display text-xl font-bold text-slate-900 dark:text-white mb-6">Comments (<span data-comment-count>2</span>)</h3>
+          <div class="space-y-6" data-comment-list>
             <div class="flex gap-4">
               <span class="h-11 w-11 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 grid place-items-center font-display font-semibold shrink-0">RK</span>
               <div>
@@ -250,40 +252,17 @@
               </div>
             </div>
           </div>
-          <form data-validate class="mt-10" onsubmit="return false;" novalidate>
-            <h4 class="font-display font-semibold text-slate-900 dark:text-white mb-4">Leave a Comment</h4>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div class="">
-            <label for="comment-name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Name <span class="text-red-500">*</span></label>
-            <input type="text" id="comment-name" name="comment-name" required
-              class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
-            <p class="field-error hidden text-xs text-red-500 mt-1">This field is required.</p>
-          </div>
-              <div class="">
-            <label for="comment-email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Email <span class="text-red-500">*</span></label>
-            <input type="email" id="comment-email" name="comment-email" required
-              class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
-            <p class="field-error hidden text-xs text-red-500 mt-1">This field is required.</p>
-          </div>
-              <div class="sm:col-span-2">
-                <label for="comment-message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Comment <span class="text-red-500">*</span></label>
-                <textarea id="comment-message" name="comment-message" required rows="4" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
-                <p class="field-error hidden text-xs text-red-500 mt-1">Please write a comment.</p>
-              </div>
-            </div>
-            <button type="submit" class="mt-5 inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-7 py-3 rounded-full transition-colors">Post Comment</button>
-          </form>
         </div>
       </article>
 
       <!-- SIDEBAR -->
       <aside class="space-y-8">
-        <div class="reveal relative">
-          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm rtl:left-auto rtl:right-4"></i>
-          <input type="search" placeholder="Search articles&hellip;" class="w-full rounded-full border border-slate-300 dark:border-slate-700 dark:bg-slate-900 pl-11 rtl:pl-4 rtl:pr-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+        <div class="group reveal relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm rtl:left-auto rtl:right-4 transition-colors group-focus-within:text-teal-600 dark:group-focus-within:text-gold-400"></i>
+          <input type="search" placeholder="Search articles&hellip;" class="w-full rounded-full border border-slate-300 dark:border-slate-700 dark:bg-slate-900 pl-11 rtl:pl-4 rtl:pr-11 pr-4 py-2.5 text-sm shadow-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:shadow-lg focus:shadow-teal-500/10" />
         </div>
 
-        <div class="reveal bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
+        <div class="reveal card-hover bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
           <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-2">Categories</h3>
           <ul class="divide-y divide-slate-100 dark:divide-slate-800">
             <li><a href="blog.html" class="flex items-center justify-between py-2 text-sm text-slate-600 dark:text-slate-400 hover:text-teal-600"><span>Posture Tips</span><i class="fa-solid fa-chevron-right rtl:rotate-180 text-xs"></i></a></li>
@@ -294,32 +273,40 @@
           </ul>
         </div>
 
-        <div class="reveal bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
+        <div class="reveal card-hover bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
           <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-4">Recent Posts</h3>
           <div class="space-y-4">
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="The 5-Minute Desk Posture Reset" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="The 5-Minute Desk Posture Reset" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">The 5-Minute Desk Posture Reset</p>
                 <p class="text-xs text-slate-500 mt-1">Aug 24, 2026</p>
               </div>
             </a>
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Why Your Lower Back Pain Keeps Coming Back" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Why Your Lower Back Pain Keeps Coming Back" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">Why Your Lower Back Pain Keeps Coming Back</p>
                 <p class="text-xs text-slate-500 mt-1">Aug 12, 2026</p>
               </div>
             </a>
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Returning to Sport After a Soft Tissue Injury" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Returning to Sport After a Soft Tissue Injury" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">Returning to Sport After a Soft Tissue Injury</p>
                 <p class="text-xs text-slate-500 mt-1">Jul 30, 2026</p>
               </div>
             </a>
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Is Chiropractic Care Safe During Pregnancy?" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Is Chiropractic Care Safe During Pregnancy?" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">Is Chiropractic Care Safe During Pregnancy?</p>
                 <p class="text-xs text-slate-500 mt-1">Jul 18, 2026</p>
@@ -328,15 +315,47 @@
           </div>
         </div>
 
-        <div class="reveal bg-gradient-to-br from-teal-700 to-teal-600 rounded-2xl p-6 text-white">
+        <div class="reveal card-hover bg-gradient-to-br from-teal-700 to-teal-600 rounded-2xl p-6 text-white">
           <i class="fa-solid fa-envelope-open-text text-2xl"></i>
           <h3 class="font-display font-semibold mt-3">Get wellness tips in your inbox</h3>
           <form data-validate class="mt-4 flex" onsubmit="return false;">
             <input type="email" required placeholder="Your email" class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
-            <button type="submit" class="rounded-r-full bg-white text-teal-700 px-4" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+            <button type="submit" class="btn-3d rounded-r-full bg-white text-teal-700 px-4" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
           </form>
         </div>
       </aside>
+    </div>
+
+    <!-- Leave a Comment: full-width, centered on the whole page rather than the article column -->
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="mt-6 pt-10 border-t border-slate-100 dark:border-slate-800 text-center">
+        <form data-validate data-comment-form class="max-w-2xl mx-auto" onsubmit="return false;" novalidate>
+          <h4 class="font-display text-xl font-semibold text-slate-900 dark:text-white mb-5">Leave a Comment</h4>
+          <div class="grid sm:grid-cols-2 gap-5 text-left">
+            <div class="">
+            <label for="comment-name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Name <span class="text-red-500">*</span></label>
+            <input type="text" id="comment-name" name="comment-name" required
+              class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <p class="field-error hidden text-xs text-red-500 mt-1">This field is required.</p>
+          </div>
+            <div class="">
+            <label for="comment-email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Email <span class="text-red-500">*</span></label>
+            <input type="email" id="comment-email" name="comment-email" required
+              class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+            <p class="field-error hidden text-xs text-red-500 mt-1">This field is required.</p>
+          </div>
+            <div class="sm:col-span-2">
+              <label for="comment-message" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Comment <span class="text-red-500">*</span></label>
+              <textarea id="comment-message" name="comment-message" required rows="4" class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500"></textarea>
+              <p class="field-error hidden text-xs text-red-500 mt-1">Please write a comment.</p>
+            </div>
+          </div>
+          <div class="mt-5 flex flex-col items-center justify-center gap-3">
+            <button type="submit" class="btn-3d inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-7 py-3 rounded-full transition-colors">Post Comment</button>
+            <p data-comment-success class="hidden text-sm text-teal-600 dark:text-teal-400"><i class="fa-solid fa-circle-check mr-1.5"></i>Your comment has been posted above. Thank you!</p>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -415,6 +434,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js?v=9"></script>
 </body>
 </html>

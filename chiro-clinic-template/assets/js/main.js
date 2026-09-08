@@ -178,6 +178,7 @@
   function initForms() {
     document.querySelectorAll("form[data-validate]").forEach(function (form) {
       var successBox = form.parentElement.querySelector("[data-form-success]");
+      var isCommentForm = form.hasAttribute("data-comment-form");
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var valid = true;
@@ -189,13 +190,57 @@
           field.classList.toggle("border-slate-300", fieldValid);
           if (errorEl) errorEl.classList.toggle("hidden", fieldValid);
         });
-        if (valid) {
-          form.reset();
-          form.classList.add("hidden");
-          if (successBox) successBox.classList.remove("hidden");
+        if (!valid) return;
+
+        if (isCommentForm) {
+          addComment(form);
+          return;
         }
+
+        form.reset();
+        form.classList.add("hidden");
+        if (successBox) successBox.classList.remove("hidden");
       });
     });
+  }
+
+  /* Append a newly-submitted comment to the list instead of hiding the form */
+  function addComment(form) {
+    // The comment list and the "Leave a Comment" form live in separate
+    // containers (the form is centered full-width, the list sits in the
+    // article column), so look them up document-wide rather than scoping
+    // to a shared ancestor.
+    var list = document.querySelector("[data-comment-list]");
+    var countEl = document.querySelector("[data-comment-count]");
+    var successNote = form.querySelector("[data-comment-success]");
+    var nameField = form.querySelector("#comment-name");
+    var messageField = form.querySelector("#comment-message");
+    var name = (nameField && nameField.value.trim()) || "Guest";
+    var message = (messageField && messageField.value.trim()) || "";
+
+    if (list) {
+      var initials = name.split(/\s+/).slice(0, 2).map(function (p) { return p.charAt(0).toUpperCase(); }).join("");
+      var row = document.createElement("div");
+      row.className = "flex gap-4";
+      row.innerHTML =
+        '<span class="h-11 w-11 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-teal-300 grid place-items-center font-display font-semibold shrink-0"></span>' +
+        '<div><div class="flex items-center gap-3"><p class="font-semibold text-sm text-slate-900 dark:text-white"></p><p class="text-xs text-slate-500">Just now</p></div>' +
+        '<p class="mt-1.5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed"></p></div>';
+      row.querySelector("span").textContent = initials;
+      row.querySelectorAll("p")[0].textContent = name;
+      row.querySelectorAll("p")[2].textContent = message;
+      list.prepend(row);
+    }
+    if (countEl) countEl.textContent = String((parseInt(countEl.textContent, 10) || 0) + 1);
+
+    form.reset();
+    if (successNote) {
+      successNote.classList.remove("hidden");
+      window.clearTimeout(successNote._hideTimer);
+      successNote._hideTimer = window.setTimeout(function () {
+        successNote.classList.add("hidden");
+      }, 5000);
+    }
   }
 
   /* ---------------- Blog filter / search / pagination ---------------- */
@@ -293,11 +338,11 @@
     filterButtons.forEach(function (btn) {
       btn.addEventListener("click", function () {
         filterButtons.forEach(function (b) {
-          b.classList.remove("is-active", "bg-teal-700", "bg-teal-600", "text-white");
-          b.classList.add("bg-slate-100", "dark:bg-slate-800");
+          b.classList.remove("is-active", "bg-teal-700", "bg-teal-600", "text-white", "shadow-md", "shadow-teal-700/30");
+          b.classList.add("bg-slate-100", "dark:bg-slate-800", "text-slate-600", "dark:text-slate-300");
         });
-        btn.classList.add("is-active", "bg-teal-700", "text-white");
-        btn.classList.remove("bg-slate-100", "dark:bg-slate-800");
+        btn.classList.add("is-active", "bg-teal-700", "text-white", "shadow-md", "shadow-teal-700/30");
+        btn.classList.remove("bg-slate-100", "dark:bg-slate-800", "text-slate-600", "dark:text-slate-300");
         currentPage = 1;
         render();
       });
