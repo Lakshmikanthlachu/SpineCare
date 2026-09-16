@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=9">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -108,7 +108,7 @@
           <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
-          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" type="button"
+          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
             class="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
@@ -175,16 +175,16 @@
   <!-- WHAT'S INCLUDED -->
   <section class="py-16 border-b border-slate-100 dark:border-slate-800">
     <div class="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
-      <div class="order-2 lg:order-1 reveal">
-        <img src="https://images.pexels.com/photos/6812437/pexels-photo-6812437.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1280&h=960" alt="Front desk team reviewing a transparent pricing and billing plan with a patient" class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3]" loading="lazy" />
+      <div class="order-2 lg:order-1 reveal tilt-hover rounded-3xl overflow-hidden">
+        <img src="https://images.pexels.com/photos/6812437/pexels-photo-6812437.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1280&h=960" alt="Front desk team reviewing a transparent pricing and billing plan with a patient" class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3] transition-transform duration-500 hover:scale-105" loading="lazy" />
       </div>
       <div class="order-1 lg:order-2">
         <p class="text-slate-600 dark:text-slate-400 reveal">Every option below includes hands-on time with a doctor &mdash; never a rushed, assembly-line visit. Choose a single session to start, or save with a package once you know your plan is working.</p>
         <div class="mt-10 grid sm:grid-cols-2 gap-6">
-          <div class="reveal flex items-start gap-3"><i class="fa-solid fa-stethoscope text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">One-on-one time, every visit</p></div>
-          <div class="reveal flex items-start gap-3"><i class="fa-solid fa-file-invoice-dollar text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">No surprise billing</p></div>
-          <div class="reveal flex items-start gap-3"><i class="fa-solid fa-rotate text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">Reschedule anytime, free</p></div>
-          <div class="reveal flex items-start gap-3"><i class="fa-solid fa-hand-holding-medical text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">Insurance verified upfront</p></div>
+          <div class="reveal group flex items-start gap-3 p-3 -m-3 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40"><i class="icon-pop fa-solid fa-stethoscope text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">One-on-one time, every visit</p></div>
+          <div class="reveal group flex items-start gap-3 p-3 -m-3 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40"><i class="icon-pop fa-solid fa-file-invoice-dollar text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">No surprise billing</p></div>
+          <div class="reveal group flex items-start gap-3 p-3 -m-3 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40"><i class="icon-pop fa-solid fa-rotate text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">Reschedule anytime, free</p></div>
+          <div class="reveal group flex items-start gap-3 p-3 -m-3 rounded-xl transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40"><i class="icon-pop fa-solid fa-hand-holding-medical text-teal-700 dark:text-gold-400 text-xl mt-0.5"></i><p class="text-sm font-medium text-slate-600 dark:text-slate-400">Insurance verified upfront</p></div>
         </div>
       </div>
     </div>
@@ -200,41 +200,41 @@
       </div>
 
       <div class="mt-14 grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
-        <div class="relative reveal rounded-2xl p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+        <div class="relative reveal card-hover rounded-2xl p-8 flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
               
               <h4 class="font-display text-lg font-semibold">New Patient Exam</h4>
               <p class="mt-4"><span class="text-4xl font-bold">$65</span> <span class="text-slate-500 text-sm">/ session</span></p>
-              <ul class="mt-6 space-y-2.5 text-sm">
+              <ul class="mt-6 space-y-2.5 text-sm flex-1">
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>Full spinal &amp; postural assessment</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>Consultation with a doctor</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>Personalized care plan</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>No obligation to continue</span></li>
               </ul>
-              <a href="contact.html" class="mt-8 inline-flex items-center justify-center w-full gap-2 font-semibold px-5 py-3 rounded-full transition-colors bg-teal-600 text-white hover:bg-teal-700">Book Now</a>
+              <a href="contact.html" class="btn-3d mt-8 inline-flex items-center justify-center w-full gap-2 font-semibold px-5 py-3 rounded-full transition-colors bg-teal-600 text-white hover:bg-teal-700">Book Now</a>
             </div>
-        <div class="relative reveal rounded-2xl p-8 bg-gradient-to-br from-teal-700 to-teal-600 text-white shadow-2xl scale-[1.03]">
+        <div class="relative reveal card-hover rounded-2xl p-8 flex flex-col h-full bg-gradient-to-br from-teal-700 to-teal-600 text-white shadow-2xl scale-[1.03]">
               <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold-500 text-white text-xs font-semibold px-4 py-1 rounded-full">Most Popular</span>
               <h4 class="font-display text-lg font-semibold">6-Visit Package</h4>
               <p class="mt-4"><span class="text-4xl font-bold">$450</span> <span class="text-teal-50 text-sm">/ session</span></p>
-              <ul class="mt-6 space-y-2.5 text-sm">
+              <ul class="mt-6 space-y-2.5 text-sm flex-1">
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-white mt-1"></i><span>6 adjustment sessions</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-white mt-1"></i><span>Posture progress review</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-white mt-1"></i><span>Priority scheduling</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-white mt-1"></i><span>10% off add-on therapies</span></li>
               </ul>
-              <a href="contact.html" class="mt-8 inline-flex items-center justify-center w-full gap-2 font-semibold px-5 py-3 rounded-full transition-colors bg-white text-teal-700 hover:bg-teal-50">Book Now</a>
+              <a href="contact.html" class="btn-3d mt-8 inline-flex items-center justify-center w-full gap-2 font-semibold px-5 py-3 rounded-full transition-colors bg-white text-teal-700 hover:bg-teal-50">Book Now</a>
             </div>
-        <div class="relative reveal rounded-2xl p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+        <div class="relative reveal card-hover rounded-2xl p-8 flex flex-col h-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
               
               <h4 class="font-display text-lg font-semibold">Monthly Wellness Membership</h4>
               <p class="mt-4"><span class="text-4xl font-bold">$160</span> <span class="text-slate-500 text-sm">/ session</span></p>
-              <ul class="mt-6 space-y-2.5 text-sm">
+              <ul class="mt-6 space-y-2.5 text-sm flex-1">
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>4 sessions per month</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>Ongoing posture tracking</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>Unlimited email support</span></li>
               <li class="flex items-start gap-2"><i class="fa-solid fa-circle-check text-teal-600 mt-1"></i><span>Family member discount</span></li>
               </ul>
-              <a href="contact.html" class="mt-8 inline-flex items-center justify-center w-full gap-2 font-semibold px-5 py-3 rounded-full transition-colors bg-teal-600 text-white hover:bg-teal-700">Book Now</a>
+              <a href="contact.html" class="btn-3d mt-8 inline-flex items-center justify-center w-full gap-2 font-semibold px-5 py-3 rounded-full transition-colors bg-teal-600 text-white hover:bg-teal-700">Book Now</a>
             </div>
       </div>
 
@@ -255,37 +255,37 @@
             </tr>
           </thead>
           <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
-            <tr>
+            <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40">
               <td class="py-4 pr-4 text-slate-600 dark:text-slate-400">Posture &amp; spinal assessment</td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
               <td class="py-4 px-4 text-center bg-teal-50/60 dark:bg-teal-900/10"><i class="fa-solid fa-circle-check text-teal-600"></i></td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
             </tr>
-            <tr>
+            <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40">
               <td class="py-4 pr-4 text-slate-600 dark:text-slate-400">Personalized treatment plan</td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
               <td class="py-4 px-4 text-center bg-teal-50/60 dark:bg-teal-900/10"><i class="fa-solid fa-circle-check text-teal-600"></i></td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
             </tr>
-            <tr>
+            <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40">
               <td class="py-4 pr-4 text-slate-600 dark:text-slate-400">Priority scheduling</td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-minus text-slate-300 dark:text-slate-700"></i></td>
               <td class="py-4 px-4 text-center bg-teal-50/60 dark:bg-teal-900/10"><i class="fa-solid fa-circle-check text-teal-600"></i></td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
             </tr>
-            <tr>
+            <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40">
               <td class="py-4 pr-4 text-slate-600 dark:text-slate-400">Discount on add-on therapies</td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-minus text-slate-300 dark:text-slate-700"></i></td>
               <td class="py-4 px-4 text-center bg-teal-50/60 dark:bg-teal-900/10"><i class="fa-solid fa-circle-check text-teal-600"></i></td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
             </tr>
-            <tr>
+            <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40">
               <td class="py-4 pr-4 text-slate-600 dark:text-slate-400">Unlimited doctor email support</td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-minus text-slate-300 dark:text-slate-700"></i></td>
               <td class="py-4 px-4 text-center bg-teal-50/60 dark:bg-teal-900/10"><i class="fa-solid fa-minus text-slate-300 dark:text-slate-700"></i></td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-circle-check text-teal-600"></i></td>
             </tr>
-            <tr>
+            <tr class="transition-colors hover:bg-slate-50 dark:hover:bg-slate-900/40">
               <td class="py-4 pr-4 text-slate-600 dark:text-slate-400">Family member discount</td>
               <td class="py-4 px-4 text-center "><i class="fa-solid fa-minus text-slate-300 dark:text-slate-700"></i></td>
               <td class="py-4 px-4 text-center bg-teal-50/60 dark:bg-teal-900/10"><i class="fa-solid fa-minus text-slate-300 dark:text-slate-700"></i></td>
@@ -301,46 +301,46 @@
         <div class="section-divider mt-5 mb-10 mx-auto"></div>
       </div>
       <div class="max-w-3xl mx-auto space-y-4 reveal">
-        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
+        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-none">
               <button type="button" class="accordion-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
                 <span class="font-medium text-slate-900 dark:text-white">Do you accept insurance?</span>
-                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0"></i>
+                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0 transition-transform duration-300"></i>
               </button>
               <div class="accordion-panel bg-white dark:bg-slate-900">
                 <p class="px-6 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Yes, we accept most major insurance providers. Our front desk will verify your benefits before your first appointment.</p>
               </div>
             </div>
-        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
+        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-none">
               <button type="button" class="accordion-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
                 <span class="font-medium text-slate-900 dark:text-white">Can I cancel or pause my membership?</span>
-                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0"></i>
+                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0 transition-transform duration-300"></i>
               </button>
               <div class="accordion-panel bg-white dark:bg-slate-900">
                 <p class="px-6 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Absolutely &mdash; wellness memberships can be paused or cancelled at any time with no penalty, just let our front desk know.</p>
               </div>
             </div>
-        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
+        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-none">
               <button type="button" class="accordion-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
                 <span class="font-medium text-slate-900 dark:text-white">Is there a payment plan for packages?</span>
-                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0"></i>
+                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0 transition-transform duration-300"></i>
               </button>
               <div class="accordion-panel bg-white dark:bg-slate-900">
                 <p class="px-6 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Yes, 6-visit and 12-visit packages can be split into two interest-free monthly payments.</p>
               </div>
             </div>
-        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
+        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-none">
               <button type="button" class="accordion-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
                 <span class="font-medium text-slate-900 dark:text-white">What happens after my New Patient Exam?</span>
-                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0"></i>
+                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0 transition-transform duration-300"></i>
               </button>
               <div class="accordion-panel bg-white dark:bg-slate-900">
                 <p class="px-6 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">You'll leave with a clear, written care plan and cost estimate before committing to anything &mdash; there's never pressure to book a package on day one.</p>
               </div>
             </div>
-        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden">
+        <div class="accordion-item border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden transition-shadow duration-300 hover:shadow-lg hover:shadow-slate-200/60 dark:hover:shadow-none">
               <button type="button" class="accordion-trigger w-full flex items-center justify-between gap-4 px-6 py-5 text-left bg-white dark:bg-slate-900 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors">
                 <span class="font-medium text-slate-900 dark:text-white">Do unused package visits expire?</span>
-                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0"></i>
+                <i class="accordion-icon fa-solid fa-plus text-teal-600 shrink-0 transition-transform duration-300"></i>
               </button>
               <div class="accordion-panel bg-white dark:bg-slate-900">
                 <p class="px-6 pb-5 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">6-visit and 12-visit packages stay valid for 12 months from purchase, so you can use them at your own pace.</p>
@@ -354,7 +354,7 @@
           <div class="relative">
             <h3 class="font-display text-2xl sm:text-3xl font-semibold text-white">Still not sure which plan is right for you?</h3>
             <p class="mt-3 text-teal-50 max-w-xl mx-auto">Book a New Patient Exam and we'll recommend a plan based on your goals &mdash; no pressure, no obligation.</p>
-            <a href="contact.html" class="inline-flex items-center gap-2 mt-7 bg-gold-400 hover:bg-gold-500 text-teal-950 font-semibold px-8 py-3.5 rounded-full shadow-lg transition-colors">
+            <a href="contact.html" class="btn-3d inline-flex items-center gap-2 mt-7 bg-gold-400 hover:bg-gold-500 text-teal-950 font-semibold px-8 py-3.5 rounded-full shadow-lg transition-colors">
               <i class="fa-solid fa-calendar-check"></i> Book Your Exam
             </a>
           </div>
@@ -410,7 +410,7 @@
           <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-gold-400"></i><a href="tel:+15552107744" class="hover:text-gold-400">+1 (555) 210-7744</a></li>
           <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-gold-400"></i><a href="mailto:care@vertebravitality.com" class="hover:text-gold-400">care@vertebravitality.com</a></li>
         </ul>
-        <form data-validate class="mt-5 flex" onsubmit="return false;">
+        <form data-validate class="mt-5 flex" onsubmit="return false;" novalidate>
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email"
             class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
@@ -425,8 +425,8 @@
       <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <p>&copy; <span data-year></span> Vertebra & Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-gold-400">Privacy Policy</a>
-          <a href="#" class="hover:text-gold-400">Terms of Service</a>
+          <a href="privacy-policy.html" class="hover:text-gold-400">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-gold-400">Terms of Service</a>
           <a href="coming-soon.html" class="hover:text-gold-400">Sitemap</a>
         </div>
       </div>
@@ -438,6 +438,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

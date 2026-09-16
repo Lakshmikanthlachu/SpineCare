@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=9">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -108,7 +108,7 @@
           <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
-          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" type="button"
+          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
             class="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
@@ -177,8 +177,8 @@
     <div class="max-w-7xl mx-auto px-6">
       <p class="eyebrow text-xs uppercase text-gold-600 dark:text-gold-400 font-semibold mb-5 reveal">Editor's Pick</p>
       <a href="blog-details.html" class="group grid lg:grid-cols-2 gap-10 items-center reveal">
-        <div class="gold-frame rounded-3xl">
-          <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1240" alt="The 5-Minute Desk Posture Reset" class="rounded-3xl shadow-xl w-full object-cover aspect-[16/11]" loading="lazy" />
+        <div class="gold-frame rounded-3xl overflow-hidden">
+          <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1800&h=1240" alt="The 5-Minute Desk Posture Reset" class="rounded-3xl shadow-xl w-full object-cover aspect-[16/11] transition-transform duration-500 group-hover:scale-105" loading="lazy" />
         </div>
         <div>
           <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -188,10 +188,10 @@
           </div>
           <h2 class="font-display mt-3 text-3xl font-semibold text-slate-900 dark:text-white leading-snug group-hover:text-teal-700 dark:group-hover:text-gold-400 transition-colors">The 5-Minute Desk Posture Reset</h2>
           <p class="mt-4 text-slate-600 dark:text-slate-400 leading-relaxed">Small daily habits that undo hours of slouching &mdash; try this simple routine between meetings.</p>
-          <div class="flex items-center gap-3 mt-6">
-            <span class="h-9 w-9 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-gold-300 grid place-items-center text-xs font-display font-semibold">DE</span>
+          <div class="flex flex-wrap items-center gap-3 gap-y-2 mt-6">
+            <span class="h-9 w-9 rounded-full bg-teal-100 dark:bg-teal-900/40 text-teal-700 dark:text-gold-300 grid place-items-center text-xs font-display font-semibold shrink-0">DE</span>
             <span class="text-sm text-slate-600 dark:text-slate-400">Dr. Elias Novak</span>
-            <span class="ml-auto inline-flex items-center gap-2 text-teal-700 dark:text-gold-400 font-semibold text-sm">Read Article <i class="fa-solid fa-arrow-right rtl:rotate-180"></i></span>
+            <span class="ml-auto inline-flex items-center gap-2 text-teal-700 dark:text-gold-400 font-semibold text-sm shrink-0">Read Article <i class="fa-solid fa-arrow-right rtl:rotate-180"></i></span>
           </div>
         </div>
       </a>
@@ -204,26 +204,27 @@
   <section class="py-16">
     <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-14">
       <div class="lg:col-span-2">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10 reveal">
-          <div class="flex flex-wrap gap-2" role="group" aria-label="Filter posts by category">
-            <button type="button" data-blog-filter="all" class="bg-teal-700 text-white is-active text-sm font-medium px-4 py-2 rounded-full transition-colors">All Posts</button>
-            <button type="button" data-blog-filter="posture-tips" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-colors">Posture Tips</button>
-            <button type="button" data-blog-filter="pain-relief" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-colors">Pain Relief</button>
-            <button type="button" data-blog-filter="sports-recovery" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-colors">Sports Recovery</button>
-            <button type="button" data-blog-filter="wellness" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-colors">Wellness</button>
-            <button type="button" data-blog-filter="clinic-news" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-colors">Clinic News</button>
+        <div class="flex flex-col items-center gap-5 mb-12 reveal text-center">
+          <div class="flex flex-wrap justify-center gap-2.5" role="group" aria-label="Filter posts by category">
+            <button type="button" data-blog-filter="all" class="bg-teal-700 text-white is-active shadow-md shadow-teal-700/30 text-sm font-medium px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">All Posts</button>
+            <button type="button" data-blog-filter="posture-tips" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">Posture Tips</button>
+            <button type="button" data-blog-filter="pain-relief" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">Pain Relief</button>
+            <button type="button" data-blog-filter="sports-recovery" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">Sports Recovery</button>
+            <button type="button" data-blog-filter="wellness" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">Wellness</button>
+            <button type="button" data-blog-filter="clinic-news" class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-sm font-medium px-4 py-2 rounded-full transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md">Clinic News</button>
           </div>
-          <div class="relative w-full sm:w-64">
-            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm rtl:left-auto rtl:right-4"></i>
+          <div class="group relative w-full max-w-sm">
+            <label for="blog-search" class="sr-only">Search articles</label>
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm rtl:left-auto rtl:right-4 transition-colors group-focus-within:text-teal-600 dark:group-focus-within:text-gold-400"></i>
             <input id="blog-search" type="search" placeholder="Search articles&hellip;"
-              class="w-full rounded-full border border-slate-300 dark:border-slate-700 dark:bg-slate-900 pl-11 rtl:pl-4 rtl:pr-11 pr-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+              class="w-full rounded-full border border-slate-300 dark:border-slate-700 dark:bg-slate-900 pl-11 rtl:pl-4 rtl:pr-11 pr-4 py-3 text-sm shadow-sm transition-shadow focus:outline-none focus:ring-2 focus:ring-teal-500 focus:shadow-lg focus:shadow-teal-500/10" />
           </div>
         </div>
 
         <div class="divide-y divide-slate-100 dark:divide-slate-800">
-          <article data-blog-card data-category="pain-relief" data-title="Why Your Lower Back Pain Keeps Coming Back" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Why Your Lower Back Pain Keeps Coming Back" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="pain-relief" data-title="Why Your Lower Back Pain Keeps Coming Back" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Why Your Lower Back Pain Keeps Coming Back" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -241,9 +242,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="sports-recovery" data-title="Returning to Sport After a Soft Tissue Injury" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Returning to Sport After a Soft Tissue Injury" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="sports-recovery" data-title="Returning to Sport After a Soft Tissue Injury" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Returning to Sport After a Soft Tissue Injury" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -261,9 +262,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="wellness" data-title="Is Chiropractic Care Safe During Pregnancy?" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Is Chiropractic Care Safe During Pregnancy?" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="wellness" data-title="Is Chiropractic Care Safe During Pregnancy?" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Is Chiropractic Care Safe During Pregnancy?" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -281,9 +282,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="clinic-news" data-title="Vertebra & Vitality Welcomes Dr. Noah Bennett" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/4269274/pexels-photo-4269274.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Vertebra & Vitality Welcomes Dr. Noah Bennett" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="clinic-news" data-title="Vertebra & Vitality Welcomes Dr. Noah Bennett" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/4269274/pexels-photo-4269274.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Vertebra & Vitality Welcomes Dr. Noah Bennett" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -301,9 +302,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="posture-tips" data-title="Standing Desks: Helpful or Overhyped?" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Standing Desks: Helpful or Overhyped?" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="posture-tips" data-title="Standing Desks: Helpful or Overhyped?" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Standing Desks: Helpful or Overhyped?" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -321,9 +322,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="pain-relief" data-title="Sciatica 101: Causes, Symptoms & Relief" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Sciatica 101: Causes, Symptoms & Relief" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="pain-relief" data-title="Sciatica 101: Causes, Symptoms & Relief" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Sciatica 101: Causes, Symptoms & Relief" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -341,9 +342,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="sports-recovery" data-title="Warm-Up Routines That Prevent Common Sports Injuries" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Warm-Up Routines That Prevent Common Sports Injuries" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="sports-recovery" data-title="Warm-Up Routines That Prevent Common Sports Injuries" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Warm-Up Routines That Prevent Common Sports Injuries" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -361,9 +362,9 @@
             </div>
           </div>
         </article>
-          <article data-blog-card data-category="wellness" data-title="Building a Family Wellness Routine at Home" class="reveal group flex flex-col sm:flex-row gap-6 py-7">
-          <a href="blog-details.html" class="shrink-0 sm:w-48">
-            <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Building a Family Wellness Routine at Home" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl" loading="lazy" />
+          <article data-blog-card data-category="wellness" data-title="Building a Family Wellness Routine at Home" class="reveal group flex flex-col sm:flex-row gap-6 py-7 px-4 -mx-4 rounded-2xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/60 hover:shadow-xl hover:shadow-slate-200/50 dark:hover:shadow-none">
+          <a href="blog-details.html" class="shrink-0 sm:w-48 rounded-2xl overflow-hidden block">
+            <img src="https://images.pexels.com/photos/3094230/pexels-photo-3094230.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=760&h=560" alt="Building a Family Wellness Routine at Home" class="w-full sm:w-48 aspect-[4/3] object-cover rounded-2xl transition-transform duration-500 group-hover:scale-110" loading="lazy" />
           </a>
           <div class="flex-1 min-w-0">
             <div class="flex items-center gap-3 text-xs text-slate-500">
@@ -393,7 +394,7 @@
 
       <!-- SIDEBAR -->
       <aside class="space-y-8">
-        <div class="reveal bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
+        <div class="reveal card-hover bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
           <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-2">Categories</h3>
           <ul class="divide-y divide-slate-100 dark:divide-slate-800">
             <li class="flex items-center justify-between py-2 text-sm text-slate-600 dark:text-slate-400"><span>Posture Tips</span><span class="text-xs bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-full px-2 py-0.5">2</span></li>
@@ -404,25 +405,31 @@
           </ul>
         </div>
 
-        <div class="reveal bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
+        <div class="reveal card-hover bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-6">
           <h3 class="font-display font-semibold text-slate-900 dark:text-white mb-4">Popular Posts</h3>
           <div class="space-y-4">
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="The 5-Minute Desk Posture Reset" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/5301767/pexels-photo-5301767.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="The 5-Minute Desk Posture Reset" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">The 5-Minute Desk Posture Reset</p>
                 <p class="text-xs text-slate-500 mt-1">Aug 24, 2026</p>
               </div>
             </a>
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Why Your Lower Back Pain Keeps Coming Back" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/7298408/pexels-photo-7298408.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Why Your Lower Back Pain Keeps Coming Back" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">Why Your Lower Back Pain Keeps Coming Back</p>
                 <p class="text-xs text-slate-500 mt-1">Aug 12, 2026</p>
               </div>
             </a>
             <a href="blog-details.html" class="flex gap-3 group">
-              <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Returning to Sport After a Soft Tissue Injury" class="h-16 w-16 rounded-xl object-cover shrink-0" loading="lazy" />
+              <span class="h-16 w-16 rounded-xl overflow-hidden shrink-0 block">
+                <img src="https://images.pexels.com/photos/5067876/pexels-photo-5067876.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=192&h=192" alt="Returning to Sport After a Soft Tissue Injury" class="h-16 w-16 object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+              </span>
               <div>
                 <p class="text-sm font-medium text-slate-900 dark:text-white leading-snug group-hover:text-teal-600 transition-colors">Returning to Sport After a Soft Tissue Injury</p>
                 <p class="text-xs text-slate-500 mt-1">Jul 30, 2026</p>
@@ -431,13 +438,14 @@
           </div>
         </div>
 
-        <div class="reveal bg-gradient-to-br from-teal-800 to-teal-700 rounded-2xl p-6 text-white ring-1 ring-gold-400/30">
+        <div class="reveal card-hover bg-gradient-to-br from-teal-800 to-teal-700 rounded-2xl p-6 text-white ring-1 ring-gold-400/30">
           <i class="fa-solid fa-envelope-open-text text-2xl text-gold-300"></i>
           <h3 class="font-display font-semibold mt-3">Get wellness tips in your inbox</h3>
           <p class="text-xs text-teal-100 mt-1.5">One email a month. No spam, ever.</p>
-          <form data-validate class="mt-4 flex" onsubmit="return false;">
-            <input type="email" required placeholder="Your email" class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
-            <button type="submit" class="rounded-r-full bg-gold-400 hover:bg-gold-500 text-teal-950 px-4" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
+          <form data-validate class="mt-4 flex" onsubmit="return false;" novalidate>
+            <label for="blog-newsletter-email" class="sr-only">Email address</label>
+            <input id="blog-newsletter-email" type="email" required placeholder="Your email" class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
+            <button type="submit" class="btn-3d rounded-r-full bg-gold-400 hover:bg-gold-500 text-teal-950 px-4" aria-label="Subscribe"><i class="fa-solid fa-paper-plane"></i></button>
           </form>
         </div>
       </aside>
@@ -491,7 +499,7 @@
           <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-gold-400"></i><a href="tel:+15552107744" class="hover:text-gold-400">+1 (555) 210-7744</a></li>
           <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-gold-400"></i><a href="mailto:care@vertebravitality.com" class="hover:text-gold-400">care@vertebravitality.com</a></li>
         </ul>
-        <form data-validate class="mt-5 flex" onsubmit="return false;">
+        <form data-validate class="mt-5 flex" onsubmit="return false;" novalidate>
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email"
             class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
@@ -506,8 +514,8 @@
       <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <p>&copy; <span data-year></span> Vertebra & Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-gold-400">Privacy Policy</a>
-          <a href="#" class="hover:text-gold-400">Terms of Service</a>
+          <a href="privacy-policy.html" class="hover:text-gold-400">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-gold-400">Terms of Service</a>
           <a href="coming-soon.html" class="hover:text-gold-400">Sitemap</a>
         </div>
       </div>
@@ -519,6 +527,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

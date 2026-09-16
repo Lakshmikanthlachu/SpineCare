@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=9">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -108,7 +108,7 @@
           <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
-          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" type="button"
+          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
             class="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
@@ -161,7 +161,7 @@
   
   <section class="min-h-screen flex items-center hero-pattern bg-gradient-to-b from-teal-50/70 to-white dark:from-slate-900 dark:to-slate-950">
     <div class="max-w-3xl mx-auto px-6 py-20 text-center reveal">
-      <a href="index.html" class="inline-flex items-center gap-3 mb-8">
+      <a href="index.html" aria-label="Vertebra & Vitality home" class="inline-flex items-center gap-3 mb-8">
         <span class="h-14 w-14 rounded-2xl bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white text-2xl shadow-lg shadow-teal-600/30">
           <i class="fa-solid fa-bone"></i>
         </span>
@@ -173,19 +173,19 @@
       <p class="mt-5 text-slate-600 dark:text-slate-400 max-w-xl mx-auto">Our online booking system is being upgraded to serve you better. We'll be back online shortly &mdash; thank you for your patience.</p>
 
       <div class="mt-10 grid grid-cols-4 gap-3 sm:gap-6 max-w-lg mx-auto" id="countdown">
-        <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
+        <div class="card-hover bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
         <span data-cd="days" class="font-display block text-2xl sm:text-3xl font-bold text-teal-600">02</span>
         <span class="text-[11px] uppercase tracking-wide text-slate-500">days</span>
       </div>
-        <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
+        <div class="card-hover bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
         <span data-cd="hours" class="font-display block text-2xl sm:text-3xl font-bold text-teal-600">14</span>
         <span class="text-[11px] uppercase tracking-wide text-slate-500">hours</span>
       </div>
-        <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
+        <div class="card-hover bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
         <span data-cd="minutes" class="font-display block text-2xl sm:text-3xl font-bold text-teal-600">36</span>
         <span class="text-[11px] uppercase tracking-wide text-slate-500">minutes</span>
       </div>
-        <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
+        <div class="card-hover bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl py-5">
         <span data-cd="seconds" class="font-display block text-2xl sm:text-3xl font-bold text-teal-600">05</span>
         <span class="text-[11px] uppercase tracking-wide text-slate-500">seconds</span>
       </div>
@@ -193,11 +193,11 @@
 
       <div class="mt-10 max-w-md mx-auto">
         <p class="text-sm text-slate-500 mb-3">Want us to notify you the moment we're back?</p>
-        <form data-validate class="flex" onsubmit="return false;">
+        <form data-validate class="flex" onsubmit="return false;" novalidate>
           <label for="notify-email" class="sr-only">Email address</label>
           <input id="notify-email" type="email" required placeholder="Your email address"
             class="w-full rounded-l-full border border-r-0 border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-5 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
-          <button type="submit" class="rounded-r-full bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 transition-colors">Notify Me</button>
+          <button type="submit" class="btn-3d rounded-r-full bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 transition-colors">Notify Me</button>
         </form>
         <div data-form-success class="hidden mt-4 text-sm text-teal-600"><i class="fa-solid fa-circle-check mr-1.5"></i>You're on the list &mdash; we'll email you!</div>
       </div>
@@ -283,7 +283,7 @@
           <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-gold-400"></i><a href="tel:+15552107744" class="hover:text-gold-400">+1 (555) 210-7744</a></li>
           <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-gold-400"></i><a href="mailto:care@vertebravitality.com" class="hover:text-gold-400">care@vertebravitality.com</a></li>
         </ul>
-        <form data-validate class="mt-5 flex" onsubmit="return false;">
+        <form data-validate class="mt-5 flex" onsubmit="return false;" novalidate>
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email"
             class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
@@ -298,8 +298,8 @@
       <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <p>&copy; <span data-year></span> Vertebra & Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-gold-400">Privacy Policy</a>
-          <a href="#" class="hover:text-gold-400">Terms of Service</a>
+          <a href="privacy-policy.html" class="hover:text-gold-400">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-gold-400">Terms of Service</a>
           <a href="coming-soon.html" class="hover:text-gold-400">Sitemap</a>
         </div>
       </div>
@@ -311,6 +311,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

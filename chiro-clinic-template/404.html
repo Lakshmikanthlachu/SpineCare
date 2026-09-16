@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=9">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -108,7 +108,7 @@
           <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
-          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" type="button"
+          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
             class="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
@@ -168,14 +168,14 @@
 
       <div class="mt-8 max-w-md mx-auto relative">
         <i class="fa-solid fa-magnifying-glass absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 rtl:left-auto rtl:right-5"></i>
-        <input type="search" placeholder="Search the site&hellip;" class="w-full rounded-full border border-slate-300 dark:border-slate-700 dark:bg-slate-900 pl-12 rtl:pl-4 rtl:pr-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
+        <input type="search" aria-label="Search the site" placeholder="Search the site&hellip;" class="w-full rounded-full border border-slate-300 dark:border-slate-700 dark:bg-slate-900 pl-12 rtl:pl-4 rtl:pr-12 pr-4 py-3.5 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
       </div>
 
       <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <a href="index.html" class="inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-7 py-3.5 rounded-full shadow-lg shadow-teal-600/25 transition-colors">
+        <a href="index.html" class="btn-3d inline-flex items-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-semibold px-7 py-3.5 rounded-full shadow-lg shadow-teal-600/25 transition-colors">
           <i class="fa-solid fa-house"></i> Back to Home
         </a>
-        <a href="contact.html" class="inline-flex items-center gap-2 border-2 border-slate-200 dark:border-slate-700 hover:border-teal-600 hover:text-teal-600 text-slate-700 dark:text-slate-200 font-semibold px-7 py-3.5 rounded-full transition-colors">
+        <a href="contact.html" class="btn-3d inline-flex items-center gap-2 border-2 border-slate-200 dark:border-slate-700 hover:border-teal-600 hover:text-teal-600 text-slate-700 dark:text-slate-200 font-semibold px-7 py-3.5 rounded-full transition-colors">
           <i class="fa-solid fa-headset"></i> Contact Support
         </a>
       </div>
@@ -183,11 +183,11 @@
       <div class="mt-14 pt-10 border-t border-slate-200 dark:border-slate-800">
         <p class="text-xs uppercase eyebrow text-slate-500 mb-5">Or Try One of These</p>
         <div class="flex flex-wrap items-center justify-center gap-3 text-sm">
-          <a href="services.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 transition-colors">Services</a>
-          <a href="doctors.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 transition-colors">Our Doctors</a>
-          <a href="pricing.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 transition-colors">Pricing</a>
-          <a href="blog.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 transition-colors">Blog</a>
-          <a href="testimonials.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 transition-colors">Testimonials</a>
+          <a href="services.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 hover:-translate-y-0.5 hover:shadow-md transition-all">Services</a>
+          <a href="doctors.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 hover:-translate-y-0.5 hover:shadow-md transition-all">Our Doctors</a>
+          <a href="pricing.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 hover:-translate-y-0.5 hover:shadow-md transition-all">Pricing</a>
+          <a href="blog.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 hover:-translate-y-0.5 hover:shadow-md transition-all">Blog</a>
+          <a href="testimonials.html" class="px-4 py-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-teal-600 hover:text-teal-600 hover:-translate-y-0.5 hover:shadow-md transition-all">Testimonials</a>
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@
           <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-gold-400"></i><a href="tel:+15552107744" class="hover:text-gold-400">+1 (555) 210-7744</a></li>
           <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-gold-400"></i><a href="mailto:care@vertebravitality.com" class="hover:text-gold-400">care@vertebravitality.com</a></li>
         </ul>
-        <form data-validate class="mt-5 flex" onsubmit="return false;">
+        <form data-validate class="mt-5 flex" onsubmit="return false;" novalidate>
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email"
             class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
@@ -255,8 +255,8 @@
       <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <p>&copy; <span data-year></span> Vertebra & Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-gold-400">Privacy Policy</a>
-          <a href="#" class="hover:text-gold-400">Terms of Service</a>
+          <a href="privacy-policy.html" class="hover:text-gold-400">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-gold-400">Terms of Service</a>
           <a href="coming-soon.html" class="hover:text-gold-400">Sitemap</a>
         </div>
       </div>
@@ -268,6 +268,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

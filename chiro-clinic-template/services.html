@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=9">
-  <link rel="stylesheet" href="assets/css/style.css?v=9">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=11">
+  <link rel="stylesheet" href="assets/css/style.css?v=11">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -108,7 +108,7 @@
           <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
-          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" type="button"
+          <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
             class="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
@@ -182,12 +182,12 @@
 
   <section class="py-20 lg:py-28 space-y-24 lg:space-y-32">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="lg:order-1 gold-frame rounded-3xl reveal">
-          <img src="https://images.pexels.com/photos/4506164/pexels-photo-4506164.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1400&h=1120" alt="Spinal Adjustment" class="rounded-3xl shadow-xl w-full object-cover aspect-[5/4]" loading="lazy" />
+      <div class="grid lg:grid-cols-2 gap-12 items-center group">
+        <div class="lg:order-1 gold-frame rounded-3xl reveal tilt-hover overflow-hidden">
+          <img src="https://images.pexels.com/photos/4506164/pexels-photo-4506164.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1400&h=1120" alt="Spinal Adjustment" class="rounded-3xl shadow-xl w-full object-cover aspect-[5/4] transition-transform duration-500 group-hover:scale-105" loading="lazy" />
         </div>
         <div class="lg:order-2 reveal">
-          <span class="h-14 w-14 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl mb-5">
+          <span class="icon-pop h-14 w-14 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl mb-5">
             <i class="fa-solid fa-bone"></i>
           </span>
           <span class="eyebrow text-teal-700 dark:text-gold-400 font-semibold text-xs uppercase">Restoring alignment, one precise correction at a time</span>
@@ -198,18 +198,18 @@
             <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-teal-700 dark:text-gold-400 mt-1"></i><span class="text-slate-700 dark:text-slate-300 text-sm">Manual and low-force, instrument-assisted techniques available</span></li>
             <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-teal-700 dark:text-gold-400 mt-1"></i><span class="text-slate-700 dark:text-slate-300 text-sm">Suited for chronic pain, acute injury, and long-term maintenance</span></li>
           </ul>
-          <a href="service-details.html" class="inline-flex items-center gap-2 mt-6 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-teal-700/20 transition-colors">
+          <a href="service-details.html" class="btn-3d inline-flex items-center gap-2 mt-6 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-teal-700/20 transition-colors">
             Learn More <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
       </div>
 
-  <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="lg:order-2 gold-frame rounded-3xl reveal">
-          <img src="https://images.pexels.com/photos/14797757/pexels-photo-14797757.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1400&h=1120" alt="Sports Injury Care" class="rounded-3xl shadow-xl w-full object-cover aspect-[5/4]" loading="lazy" />
+  <div class="grid lg:grid-cols-2 gap-12 items-center group">
+        <div class="lg:order-2 gold-frame rounded-3xl reveal tilt-hover overflow-hidden">
+          <img src="https://images.pexels.com/photos/14797757/pexels-photo-14797757.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1400&h=1120" alt="Sports Injury Care" class="rounded-3xl shadow-xl w-full object-cover aspect-[5/4] transition-transform duration-500 group-hover:scale-105" loading="lazy" />
         </div>
         <div class="lg:order-1 reveal">
-          <span class="h-14 w-14 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl mb-5">
+          <span class="icon-pop h-14 w-14 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl mb-5">
             <i class="fa-solid fa-person-running"></i>
           </span>
           <span class="eyebrow text-teal-700 dark:text-gold-400 font-semibold text-xs uppercase">Get back in the game, stronger than before</span>
@@ -220,18 +220,18 @@
             <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-teal-700 dark:text-gold-400 mt-1"></i><span class="text-slate-700 dark:text-slate-300 text-sm">Custom rehab and strength programming alongside adjustments</span></li>
             <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-teal-700 dark:text-gold-400 mt-1"></i><span class="text-slate-700 dark:text-slate-300 text-sm">Trusted by local youth, collegiate, and weekend-warrior athletes</span></li>
           </ul>
-          <a href="service-details.html" class="inline-flex items-center gap-2 mt-6 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-teal-700/20 transition-colors">
+          <a href="service-details.html" class="btn-3d inline-flex items-center gap-2 mt-6 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-teal-700/20 transition-colors">
             Learn More <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
       </div>
 
-  <div class="grid lg:grid-cols-2 gap-12 items-center">
-        <div class="lg:order-1 gold-frame rounded-3xl reveal">
-          <img src="https://images.pexels.com/photos/10321960/pexels-photo-10321960.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1400&h=1120" alt="Postural Correction" class="rounded-3xl shadow-xl w-full object-cover aspect-[5/4]" loading="lazy" />
+  <div class="grid lg:grid-cols-2 gap-12 items-center group">
+        <div class="lg:order-1 gold-frame rounded-3xl reveal tilt-hover overflow-hidden">
+          <img src="https://images.pexels.com/photos/10321960/pexels-photo-10321960.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1400&h=1120" alt="Postural Correction" class="rounded-3xl shadow-xl w-full object-cover aspect-[5/4] transition-transform duration-500 group-hover:scale-105" loading="lazy" />
         </div>
         <div class="lg:order-2 reveal">
-          <span class="h-14 w-14 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl mb-5">
+          <span class="icon-pop h-14 w-14 rounded-xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl mb-5">
             <i class="fa-solid fa-child-reaching"></i>
           </span>
           <span class="eyebrow text-teal-700 dark:text-gold-400 font-semibold text-xs uppercase">Undo years of slouching, permanently</span>
@@ -242,7 +242,7 @@
             <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-teal-700 dark:text-gold-400 mt-1"></i><span class="text-slate-700 dark:text-slate-300 text-sm">Take-home corrective exercises, no gym required</span></li>
             <li class="flex items-start gap-3"><i class="fa-solid fa-circle-check text-teal-700 dark:text-gold-400 mt-1"></i><span class="text-slate-700 dark:text-slate-300 text-sm">Popular with remote workers, students, and new parents</span></li>
           </ul>
-          <a href="service-details.html" class="inline-flex items-center gap-2 mt-6 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-teal-700/20 transition-colors">
+          <a href="service-details.html" class="btn-3d inline-flex items-center gap-2 mt-6 bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-6 py-3 rounded-full shadow-md shadow-teal-700/20 transition-colors">
             Learn More <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
@@ -259,75 +259,75 @@
         <p class="text-slate-600 dark:text-slate-400">Rounding out our flagship treatments, these focused services are available on their own or layered into a broader care plan.</p>
       </div>
       <div class="mt-10 divide-y divide-slate-200 dark:divide-slate-800 border-y border-slate-200 dark:border-slate-800">
-        <div class="reveal group flex items-center gap-5 py-6">
-          <span class="h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
+        <div class="reveal group flex items-center gap-5 py-6 px-4 -mx-4 rounded-xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/40">
+          <span class="icon-pop h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
             <i class="fa-solid fa-baby"></i>
           </span>
           <div class="flex-1 min-w-0">
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Prenatal Chiropractic</h3>
             <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Safe, gentle techniques designed to ease pregnancy-related back pain and support optimal fetal positioning.</p>
           </div>
-          <a href="service-details.html" aria-label="Learn more about Prenatal Chiropractic" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 transition-colors">
+          <a href="service-details.html" aria-label="Learn more about Prenatal Chiropractic" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 group-hover:translate-x-1 transition-all">
             <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
-        <div class="reveal group flex items-center gap-5 py-6">
-          <span class="h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
+        <div class="reveal group flex items-center gap-5 py-6 px-4 -mx-4 rounded-xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/40">
+          <span class="icon-pop h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
             <i class="fa-solid fa-hand-holding-medical"></i>
           </span>
           <div class="flex-1 min-w-0">
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Massage &amp; Rehab Therapy</h3>
             <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Therapeutic massage and guided rehabilitation exercises that complement adjustments and speed up recovery.</p>
           </div>
-          <a href="service-details.html" aria-label="Learn more about Massage &amp; Rehab Therapy" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 transition-colors">
+          <a href="service-details.html" aria-label="Learn more about Massage &amp; Rehab Therapy" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 group-hover:translate-x-1 transition-all">
             <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
-        <div class="reveal group flex items-center gap-5 py-6">
-          <span class="h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
+        <div class="reveal group flex items-center gap-5 py-6 px-4 -mx-4 rounded-xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/40">
+          <span class="icon-pop h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
             <i class="fa-solid fa-shoe-prints"></i>
           </span>
           <div class="flex-1 min-w-0">
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Pediatric Chiropractic</h3>
             <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Gentle, age-appropriate care to support healthy spinal development and posture habits in children.</p>
           </div>
-          <a href="service-details.html" aria-label="Learn more about Pediatric Chiropractic" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 transition-colors">
+          <a href="service-details.html" aria-label="Learn more about Pediatric Chiropractic" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 group-hover:translate-x-1 transition-all">
             <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
-        <div class="reveal group flex items-center gap-5 py-6">
-          <span class="h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
+        <div class="reveal group flex items-center gap-5 py-6 px-4 -mx-4 rounded-xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/40">
+          <span class="icon-pop h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
             <i class="fa-solid fa-brain"></i>
           </span>
           <div class="flex-1 min-w-0">
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Headache &amp; Migraine Relief</h3>
             <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Targeted cervical spine treatment to reduce the frequency and intensity of tension headaches and migraines.</p>
           </div>
-          <a href="service-details.html" aria-label="Learn more about Headache &amp; Migraine Relief" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 transition-colors">
+          <a href="service-details.html" aria-label="Learn more about Headache &amp; Migraine Relief" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 group-hover:translate-x-1 transition-all">
             <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
-        <div class="reveal group flex items-center gap-5 py-6">
-          <span class="h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
+        <div class="reveal group flex items-center gap-5 py-6 px-4 -mx-4 rounded-xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/40">
+          <span class="icon-pop h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
             <i class="fa-solid fa-briefcase-medical"></i>
           </span>
           <div class="flex-1 min-w-0">
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Work &amp; Auto Injury Care</h3>
             <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Comprehensive evaluation and treatment plans for workplace and auto-accident related musculoskeletal injuries.</p>
           </div>
-          <a href="service-details.html" aria-label="Learn more about Work &amp; Auto Injury Care" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 transition-colors">
+          <a href="service-details.html" aria-label="Learn more about Work &amp; Auto Injury Care" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 group-hover:translate-x-1 transition-all">
             <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
-        <div class="reveal group flex items-center gap-5 py-6">
-          <span class="h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
+        <div class="reveal group flex items-center gap-5 py-6 px-4 -mx-4 rounded-xl transition-all duration-300 hover:bg-slate-50 dark:hover:bg-slate-900/40">
+          <span class="icon-pop h-12 w-12 shrink-0 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-teal-700 dark:text-gold-400 grid place-items-center text-lg group-hover:bg-teal-700 group-hover:text-white dark:group-hover:bg-gold-500 dark:group-hover:text-slate-900 transition-colors">
             <i class="fa-solid fa-dumbbell"></i>
           </span>
           <div class="flex-1 min-w-0">
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Corrective Exercise Programs</h3>
             <p class="text-sm text-slate-600 dark:text-slate-400 mt-0.5">Custom strength and mobility routines that reinforce your adjustments and prevent pain from returning.</p>
           </div>
-          <a href="service-details.html" aria-label="Learn more about Corrective Exercise Programs" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 transition-colors">
+          <a href="service-details.html" aria-label="Learn more about Corrective Exercise Programs" class="shrink-0 h-10 w-10 rounded-full grid place-items-center text-slate-400 group-hover:text-teal-700 dark:group-hover:text-gold-400 group-hover:bg-teal-50 dark:group-hover:bg-slate-800 group-hover:translate-x-1 transition-all">
             <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
           </a>
         </div>
@@ -345,18 +345,18 @@
         <p class="text-slate-600 dark:text-slate-400">A clear, three-step process &mdash; no confusing intake, no pressure to commit before you're ready.</p>
       </div>
       <div class="mt-14 grid sm:grid-cols-3 gap-8">
-        <div class="reveal text-center px-4">
-          <span class="mx-auto h-16 w-16 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl font-display font-bold">1</span>
+        <div class="reveal group card-hover text-center px-6 py-8 rounded-2xl">
+          <span class="icon-pop mx-auto h-16 w-16 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl font-display font-bold">1</span>
           <h3 class="font-display mt-5 text-lg font-semibold text-slate-900 dark:text-white">Book Your Exam</h3>
           <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Schedule online or by phone. We'll verify your insurance benefits before you even arrive.</p>
         </div>
-        <div class="reveal text-center px-4">
-          <span class="mx-auto h-16 w-16 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl font-display font-bold">2</span>
+        <div class="reveal group card-hover text-center px-6 py-8 rounded-2xl">
+          <span class="icon-pop mx-auto h-16 w-16 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl font-display font-bold">2</span>
           <h3 class="font-display mt-5 text-lg font-semibold text-slate-900 dark:text-white">Get a Personalized Plan</h3>
           <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">A full postural &amp; spinal assessment leads to a written care plan &mdash; costs included, no surprises.</p>
         </div>
-        <div class="reveal text-center px-4">
-          <span class="mx-auto h-16 w-16 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl font-display font-bold">3</span>
+        <div class="reveal group card-hover text-center px-6 py-8 rounded-2xl">
+          <span class="icon-pop mx-auto h-16 w-16 rounded-2xl bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-gold-400 grid place-items-center text-2xl font-display font-bold">3</span>
           <h3 class="font-display mt-5 text-lg font-semibold text-slate-900 dark:text-white">Heal &amp; Stay Ahead of Pain</h3>
           <p class="mt-2 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">Regular adjustments and take-home exercises keep you moving well long after symptoms fade.</p>
         </div>
@@ -382,8 +382,8 @@
           View Pricing &amp; Packages <i class="fa-solid fa-arrow-right rtl:rotate-180"></i>
         </a>
       </div>
-      <div class="gold-frame rounded-3xl reveal">
-        <img src="https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1240&h=920" alt="Front desk staff assisting a patient with insurance paperwork" class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3]" loading="lazy" />
+      <div class="gold-frame rounded-3xl reveal tilt-hover overflow-hidden">
+        <img src="https://images.pexels.com/photos/6809657/pexels-photo-6809657.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1240&h=920" alt="Front desk staff assisting a patient with insurance paperwork" class="rounded-3xl shadow-xl w-full object-cover aspect-[4/3] transition-transform duration-500 hover:scale-105" loading="lazy" />
       </div>
     </div>
   </section>
@@ -395,7 +395,7 @@
         <div class="relative">
           <h2 class="font-display text-3xl sm:text-4xl font-semibold text-white">Not sure which service is right for you?</h2>
           <p class="mt-4 text-teal-50 max-w-xl mx-auto">Book a New Patient Exam and we'll build a personalized plan around your symptoms and goals &mdash; no pressure, no guesswork.</p>
-          <a href="contact.html" class="inline-flex items-center gap-2 mt-8 bg-gold-400 hover:bg-gold-500 text-teal-950 font-semibold px-8 py-3.5 rounded-full shadow-lg transition-colors">
+          <a href="contact.html" class="btn-3d inline-flex items-center gap-2 mt-8 bg-gold-400 hover:bg-gold-500 text-teal-950 font-semibold px-8 py-3.5 rounded-full shadow-lg transition-colors">
             <i class="fa-solid fa-calendar-check"></i> Book a Consultation
           </a>
         </div>
@@ -450,7 +450,7 @@
           <li class="flex gap-3"><i class="fa-solid fa-phone mt-1 text-gold-400"></i><a href="tel:+15552107744" class="hover:text-gold-400">+1 (555) 210-7744</a></li>
           <li class="flex gap-3"><i class="fa-solid fa-envelope mt-1 text-gold-400"></i><a href="mailto:care@vertebravitality.com" class="hover:text-gold-400">care@vertebravitality.com</a></li>
         </ul>
-        <form data-validate class="mt-5 flex" onsubmit="return false;">
+        <form data-validate class="mt-5 flex" onsubmit="return false;" novalidate>
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input id="newsletter-email" type="email" required placeholder="Your email"
             class="w-full rounded-l-full px-4 py-2.5 text-sm text-slate-900 focus:outline-none" />
@@ -465,8 +465,8 @@
       <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
         <p>&copy; <span data-year></span> Vertebra & Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-gold-400">Privacy Policy</a>
-          <a href="#" class="hover:text-gold-400">Terms of Service</a>
+          <a href="privacy-policy.html" class="hover:text-gold-400">Privacy Policy</a>
+          <a href="terms-of-service.html" class="hover:text-gold-400">Terms of Service</a>
           <a href="coming-soon.html" class="hover:text-gold-400">Sitemap</a>
         </div>
       </div>
@@ -478,6 +478,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/main.js?v=11"></script>
 </body>
 </html>

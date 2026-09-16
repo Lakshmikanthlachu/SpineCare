@@ -17,6 +17,8 @@
     initBackToTop();
     initForms();
     initBlogFilter();
+    initPhoneGuard();
+    initVideoSound();
   });
 
   /* ---------------- Footer year ---------------- */
@@ -241,6 +243,69 @@
         successNote.classList.add("hidden");
       }, 5000);
     }
+  }
+
+  /* ---------------- Phone field guard (block letters/symbols) ---------------- */
+  function initPhoneGuard() {
+    var allowedKeys = ["Backspace", "Delete", "Tab", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"];
+    document.querySelectorAll("[data-phone-guard]").forEach(function (field) {
+      field.addEventListener("keydown", function (e) {
+        if (allowedKeys.indexOf(e.key) !== -1 || e.ctrlKey || e.metaKey) return;
+        if (!/^[0-9+()\-\s]$/.test(e.key)) {
+          e.preventDefault();
+        }
+      });
+      field.addEventListener("input", function () {
+        var cleaned = field.value.replace(/[^0-9+()\-\s]/g, "");
+        if (cleaned !== field.value) field.value = cleaned;
+      });
+      field.addEventListener("paste", function (e) {
+        e.preventDefault();
+        var text = (e.clipboardData || window.clipboardData).getData("text");
+        var cleaned = text.replace(/[^0-9+()\-\s]/g, "");
+        var start = field.selectionStart || field.value.length;
+        var end = field.selectionEnd || field.value.length;
+        field.value = field.value.slice(0, start) + cleaned + field.value.slice(end);
+      });
+    });
+  }
+
+  /* ---------------- Autoplaying video testimonial + mute toggle ---------------- */
+  function initVideoSound() {
+    document.querySelectorAll("[data-video-wrap]").forEach(function (wrap) {
+      var video = wrap.querySelector("[data-testimonial-video]");
+      var muteBtn = wrap.querySelector("[data-video-mute]");
+      if (!video) return;
+
+      // Autoplay (muted) is attempted via the `autoplay` attribute; some
+      // browsers still need an explicit play() call, and if autoplay is
+      // blocked entirely we fall back to native controls so the visitor
+      // can start playback themselves.
+      var playPromise = video.play();
+      if (playPromise && playPromise.catch) {
+        playPromise.catch(function () {
+          video.setAttribute("controls", "");
+        });
+      }
+
+      if (!muteBtn) return;
+      function updateIcon() {
+        var mutedIcon = muteBtn.querySelector('[data-icon="muted"]');
+        var unmutedIcon = muteBtn.querySelector('[data-icon="unmuted"]');
+        if (mutedIcon) mutedIcon.classList.toggle("hidden", !video.muted);
+        if (unmutedIcon) unmutedIcon.classList.toggle("hidden", video.muted);
+        muteBtn.setAttribute("aria-pressed", String(!video.muted));
+        muteBtn.setAttribute("aria-label", video.muted ? "Unmute video" : "Mute video");
+      }
+      muteBtn.addEventListener("click", function () {
+        video.muted = !video.muted;
+        if (!video.muted) {
+          video.play().catch(function () {});
+        }
+        updateIcon();
+      });
+      updateIcon();
+    });
   }
 
   /* ---------------- Blog filter / search / pagination ---------------- */
