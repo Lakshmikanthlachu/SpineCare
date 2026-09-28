@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=11">
-  <link rel="stylesheet" href="assets/css/style.css?v=11">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=13">
+  <link rel="stylesheet" href="assets/css/style.css?v=13">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -57,7 +57,7 @@
           </span>
         </a>
 
-        <nav class="hidden lg:block" aria-label="Primary">
+        <nav class="hidden xl:block" aria-label="Primary">
           <ul class="flex items-center gap-7 text-sm">
             <li class="relative group">
               <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors" aria-haspopup="true">
@@ -82,6 +82,7 @@
                   <a href="about.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">About Us</a>
               <a href="blog.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Blog</a>
               <a href="pricing.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Pricing</a>
+              <a href="dashboard.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Dashboard</a>
                 </div>
               </div>
             </li>
@@ -96,20 +97,17 @@
             <i data-icon="sun" class="fa-solid fa-sun hidden"></i>
           </button>
           <button data-dir-toggle type="button" aria-label="Toggle RTL / LTR layout" title="Toggle RTL / LTR"
-            class="hidden lg:grid h-10 w-10 rounded-full place-items-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            class="hidden xl:grid h-10 w-10 rounded-full place-items-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <i class="fa-solid fa-right-left"></i>
           </button>
-          <a href="login.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap text-sm font-medium text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors px-2 shrink-0">
-            <i class="fa-solid fa-user text-xs"></i> Log In
+          <a href="login.html" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap border border-teal-700/30 dark:border-gold-400/30 text-teal-700 dark:text-gold-400 hover:bg-teal-50 dark:hover:bg-slate-800 text-sm font-semibold px-4 py-2 rounded-full transition-colors shrink-0">
+            <i class="fa-solid fa-user text-xs"></i> Login / Register
           </a>
-          <a href="register.html" class="hidden lg:inline-flex items-center whitespace-nowrap border border-teal-700/30 dark:border-gold-400/30 text-teal-700 dark:text-gold-400 hover:bg-teal-50 dark:hover:bg-slate-800 text-sm font-semibold px-4 py-2 rounded-full transition-colors shrink-0">
-            Sign Up
-          </a>
-          <a href="contact.html" class="hidden lg:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
+          <a href="contact.html" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
           <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
-            class="lg:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+            class="xl:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
           </button>
@@ -117,7 +115,7 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="lg:hidden border-t border-slate-100 dark:border-slate-800">
+    <div id="mobile-menu" class="xl:hidden border-t border-slate-100 dark:border-slate-800">
       <div class="px-4 py-4 space-y-4">
         <div class="space-y-1">
           <a href="index.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Home 1</a>
@@ -129,6 +127,7 @@
           <a href="about.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">About Us</a>
           <a href="blog.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Blog</a>
           <a href="pricing.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Pricing</a>
+          <a href="dashboard.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Dashboard</a>
         </div>
 
         <button data-dir-toggle type="button"
@@ -137,14 +136,9 @@
           <i class="fa-solid fa-chevron-right rtl:rotate-180 text-xs text-slate-400"></i>
         </button>
 
-        <div class="grid grid-cols-2 gap-3">
-          <a href="login.html" class="flex items-center justify-center gap-2 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-sm font-semibold px-4 py-3 rounded-full">
-            <i class="fa-solid fa-user"></i> Log In
-          </a>
-          <a href="register.html" class="flex items-center justify-center gap-2 border border-teal-700/30 dark:border-gold-400/30 text-teal-700 dark:text-gold-400 text-sm font-semibold px-4 py-3 rounded-full">
-            Sign Up
-          </a>
-        </div>
+        <a href="login.html" class="flex items-center justify-center gap-2 border border-teal-700/30 dark:border-gold-400/30 text-teal-700 dark:text-gold-400 text-sm font-semibold px-4 py-3 rounded-full">
+          <i class="fa-solid fa-user"></i> Login / Register
+        </a>
         <a href="contact.html" class="flex items-center justify-center gap-2 bg-gradient-to-r from-teal-700 to-teal-600 text-white text-sm font-semibold px-5 py-3.5 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30">
           <i class="fa-solid fa-calendar-check"></i> Book Appointment
         </a>
@@ -250,8 +244,8 @@
       <div>
         <h4 class="font-display text-white font-semibold mb-4">Patient Account</h4>
         <ul class="space-y-2.5 text-sm">
-          <li><a href="login.html" class="hover:text-gold-400 transition-colors">Log In</a></li>
-          <li><a href="register.html" class="hover:text-gold-400 transition-colors">Create an Account</a></li>
+          <li><a href="login.html" class="hover:text-gold-400 transition-colors">Login / Register</a></li>
+          <li><a href="dashboard.html" class="hover:text-gold-400 transition-colors">Patient Dashboard</a></li>
           <li><a href="service-details.html" class="hover:text-gold-400 transition-colors">Spinal Adjustment</a></li>
           <li><a href="service-details.html" class="hover:text-gold-400 transition-colors">Sports Injury Care</a></li>
           <li><a href="services.html" class="hover:text-gold-400 transition-colors">All Services</a></li>
@@ -293,6 +287,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=11"></script>
+  <script src="assets/js/main.js?v=13"></script>
 </body>
 </html>
