@@ -18,13 +18,14 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Doctors | Vertebra & Vitality">
   <meta name="twitter:description" content="Meet the board-certified chiropractors at Vertebra & Vitality, specializing in spinal rehabilitation, sports injuries, prenatal, and postural care.">
+  <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" href="assets/img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=13">
-  <link rel="stylesheet" href="assets/css/style.css?v=13">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=14">
+  <link rel="stylesheet" href="assets/css/style.css?v=14">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -82,7 +83,6 @@
                   <a href="about.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">About Us</a>
               <a href="blog.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Blog</a>
               <a href="pricing.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Pricing</a>
-              <a href="dashboard.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Dashboard</a>
                 </div>
               </div>
             </li>
@@ -127,7 +127,6 @@
           <a href="about.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">About Us</a>
           <a href="blog.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Blog</a>
           <a href="pricing.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Pricing</a>
-          <a href="dashboard.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Dashboard</a>
         </div>
 
         <button data-dir-toggle type="button"
@@ -154,15 +153,19 @@
   </header>
   
   <section class="relative overflow-hidden hero-pattern bg-gradient-to-b from-teal-50/70 to-white dark:from-slate-900 dark:to-slate-950 border-b border-slate-100 dark:border-slate-800">
-    <div class="max-w-7xl mx-auto px-6 py-16 lg:py-20 text-center reveal">
-      <span class="text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Doctors</span>
-      <h1 class="font-display mt-3 text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">Meet the specialists behind your care</h1>
-      <p class="mt-5 max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Six board-certified chiropractors, one shared commitment to gentle, effective, personalized treatment.</p>
-      <div class="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500">
+    <div class="absolute inset-0">
+      <img src="https://images.pexels.com/photos/7108318/pexels-photo-7108318.jpeg?auto=compress&amp;cs=tinysrgb&amp;fit=crop&amp;w=2000&amp;h=700" alt="" class="w-full h-full object-cover" loading="eager" />
+      <div class="absolute inset-0 bg-gradient-to-b from-white/70 via-white/55 to-white dark:from-slate-950/75 dark:via-slate-950/65 dark:to-slate-950"></div>
+    </div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6 py-16 lg:py-20 text-center reveal">
+      <div class="flex items-center justify-center gap-2 text-sm text-slate-500">
         <a href="index.html" class="hover:text-teal-600">Home</a>
         <i class="fa-solid fa-chevron-right rtl:rotate-180 text-xs"></i>
         <span class="text-teal-600 font-medium">Doctors</span>
       </div>
+      <span class="mt-5 inline-block text-teal-600 font-semibold text-sm uppercase tracking-wider">Our Doctors</span>
+      <h1 class="font-display mt-3 text-4xl sm:text-5xl font-bold text-slate-900 dark:text-white">Meet the specialists behind your care</h1>
+      <p class="mt-5 max-w-2xl mx-auto text-slate-600 dark:text-slate-400">Six board-certified chiropractors, one shared commitment to gentle, effective, personalized treatment.</p>
     </div>
   </section>
 
@@ -229,7 +232,7 @@
             <div class="flex items-center gap-3 mt-5 text-slate-400">
               <a href="https://www.linkedin.com/in/marcus-feld" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://www.instagram.com/dr.marcus.feld" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="contact.html" class="ml-auto text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
+              <a href="contact.html" class="text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
             </div>
           </div>
         </div>
@@ -249,7 +252,7 @@
             <div class="flex items-center gap-3 mt-5 text-slate-400">
               <a href="https://www.linkedin.com/in/priya-nandan" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://www.instagram.com/dr.priya.nandan" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="contact.html" class="ml-auto text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
+              <a href="contact.html" class="text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
             </div>
           </div>
         </div>
@@ -269,7 +272,7 @@
             <div class="flex items-center gap-3 mt-5 text-slate-400">
               <a href="https://www.linkedin.com/in/elias-novak" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://www.instagram.com/dr.elias.novak" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="contact.html" class="ml-auto text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
+              <a href="contact.html" class="text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
             </div>
           </div>
         </div>
@@ -289,7 +292,7 @@
             <div class="flex items-center gap-3 mt-5 text-slate-400">
               <a href="https://www.linkedin.com/in/sofia-reyes" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://www.instagram.com/dr.sofia.reyes" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="contact.html" class="ml-auto text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
+              <a href="contact.html" class="text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
             </div>
           </div>
         </div>
@@ -309,7 +312,7 @@
             <div class="flex items-center gap-3 mt-5 text-slate-400">
               <a href="https://www.linkedin.com/in/noah-bennett" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://www.instagram.com/dr.noah.bennett" target="_blank" rel="noopener noreferrer" class="hover:text-teal-700 dark:hover:text-gold-400" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-              <a href="contact.html" class="ml-auto text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
+              <a href="contact.html" class="text-teal-700 dark:text-gold-400 text-sm font-semibold">Book &rarr;</a>
             </div>
           </div>
         </div>
@@ -428,7 +431,6 @@
         <h4 class="font-display text-white font-semibold mb-4">Patient Account</h4>
         <ul class="space-y-2.5 text-sm">
           <li><a href="login.html" class="hover:text-gold-400 transition-colors">Login / Register</a></li>
-          <li><a href="dashboard.html" class="hover:text-gold-400 transition-colors">Patient Dashboard</a></li>
           <li><a href="service-details.html" class="hover:text-gold-400 transition-colors">Spinal Adjustment</a></li>
           <li><a href="service-details.html" class="hover:text-gold-400 transition-colors">Sports Injury Care</a></li>
           <li><a href="services.html" class="hover:text-gold-400 transition-colors">All Services</a></li>
@@ -470,6 +472,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=13"></script>
+  <script src="assets/js/main.js?v=14"></script>
 </body>
 </html>

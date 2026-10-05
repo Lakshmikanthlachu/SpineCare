@@ -172,16 +172,29 @@ h1, h2, h3, h4, h5, h6, .font-display {
   transition: transform .5s ease;
 }
 
-/* ---------- Mobile nav ---------- */
+/* ---------- Mobile nav ----------
+   Positioned absolutely (anchored to the sticky <header>, its nearest
+   positioned ancestor) so opening it overlays the page instead of
+   pushing the hero section — and everything below it — downward. */
 #mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
   max-height: 0;
   overflow: hidden;
+  background-color: #ffffff;
   transition: max-height .45s ease;
+  z-index: 40;
+}
+.dark #mobile-menu {
+  background-color: #0f172a;
 }
 #mobile-menu.open {
   max-height: min(720px, calc(100vh - 64px));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
 }
 
 /* ---------- Skeleton / utility ---------- */
@@ -190,8 +203,36 @@ h1, h2, h3, h4, h5, h6, .font-display {
   -webkit-backdrop-filter: blur(10px);
 }
 
+/* Small utility shims for classes not present in the compiled Tailwind
+   build in this repo (no build step is run here — see project notes).
+   Semantics match the equivalent Tailwind utility exactly. */
+.mt-auto {
+  margin-top: auto;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 /* ---------- Dark mode fine-tuning (Tailwind handles most via dark: classes) ---------- */
 .dark ::-webkit-scrollbar-thumb { background: #17504a; }
+
+/* Native date/time inputs (e.g. the Contact page "Preferred Date" field)
+   paint their calendar/clock icon using the browser's own color-scheme —
+   left at the default "light" scheme, that icon renders dark-on-dark and
+   disappears against our dark-mode input backgrounds. Telling the browser
+   which scheme the control sits in lets it swap in its native light icon
+   automatically, no filter hacks needed. */
+input[type="date"],
+input[type="time"] {
+  color-scheme: light;
+}
+.dark input[type="date"],
+.dark input[type="time"] {
+  color-scheme: dark;
+}
 
 /* ---------- RTL support ----------
    Tailwind's built-in rtl:/ltr: variants (keyed off [dir]) handle most
