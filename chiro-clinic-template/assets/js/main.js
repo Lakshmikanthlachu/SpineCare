@@ -10,6 +10,7 @@
     initYear();
     initTheme();
     initDirection();
+    initBidi();
     initMobileMenu();
     initAccordion();
     initTestimonialCarousel();
@@ -74,6 +75,72 @@
     });
   }
 
+  /* ---------------- Bidi safety for numbers / phones / e-mails ----------------
+     In RTL mode a bare "15+", "$85" or "+1 (555) 210-7744" gets its symbols
+     reordered ("+15"). Wrapping such values in <bdi> (auto-direction isolate,
+     which resolves to LTR for digits and Latin text) keeps them intact. */
+  function isStandalone(node) {
+    var kids = node.parentNode.childNodes;
+    for (var i = 0; i < kids.length; i++) {
+      var k = kids[i];
+      if (k === node) continue;
+      if (k.nodeType === 3 && k.nodeValue.trim()) return false;
+      if (k.nodeType === 1 && k.textContent.trim()) return false;
+    }
+    return true;
+  }
+
+  function initBidi() {
+    var NUMERIC = /^[\s\d$\u20AC\u00A3+\-\u2013\u2014.,:\/%()*#]*\d[\s\d$\u20AC\u00A3+\-\u2013\u2014.,:\/%()*#]*[a-zA-Z]{0,4}\+?$/;
+    var EMAIL = /^[\w.+-]+@[\w-]+(\.[\w-]+)+$/;
+    // Pass 1 — compound values split across inline children, e.g. 4.9<span>/5</span>
+    document.querySelectorAll("p,div,span,strong,b,dd,dt,li").forEach(function (el) {
+      if (!el.children.length || el.children.length > 3 || el.closest("bdi")) return;
+      var t = el.textContent.trim();
+      if (t.length > 40 || !NUMERIC.test(t)) return;
+      for (var i = 0; i < el.children.length; i++) {
+        if (el.children[i].children.length || /^(I|A|SVG|IMG|BUTTON|INPUT)$/.test(el.children[i].nodeName)) return;
+      }
+      var bdi = document.createElement("bdi");
+      while (el.firstChild) bdi.appendChild(el.firstChild);
+      el.appendChild(bdi);
+    });
+
+    // Pass 2 — individual text nodes
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        var parent = node.parentNode;
+        if (!parent || /^(SCRIPT|STYLE|TEXTAREA|OPTION|BDI|NOSCRIPT)$/.test(parent.nodeName) || parent.closest("bdi")) return NodeFilter.FILTER_REJECT;
+        var t = node.nodeValue.trim();
+        if (!t || t.length > 400) return NodeFilter.FILTER_REJECT;
+        if (t.length <= 40 && (NUMERIC.test(t) || EMAIL.test(t))) return NodeFilter.FILTER_ACCEPT;
+        if (!/[A-Za-z]{2}/.test(t)) return NodeFilter.FILTER_REJECT;
+        // Only isolate text that stands alone in its element (optionally next to
+        // icons). Text that is one piece of a longer inline sentence must keep
+        // flowing with its neighbours or the phrases would swap sides.
+        if (!isStandalone(node)) return NodeFilter.FILTER_REJECT;
+        // English text that opens or closes with punctuation/digits/symbols
+        // ("What should I bring?", "4.9/5 (612 reviews)", \u201CQuoted\u201D, "\u00A9 2026 ...")
+        // — isolate it so the marks stay on the correct side in RTL.
+        if (/^[^A-Za-z]/.test(t) || /[^A-Za-z0-9\s]$/.test(t)) return NodeFilter.FILTER_ACCEPT;
+        return NodeFilter.FILTER_REJECT;
+      }
+    });
+    var targets = [];
+    while (walker.nextNode()) targets.push(walker.currentNode);
+    targets.forEach(function (node) {
+      // Keep surrounding whitespace outside the isolate so word spacing survives
+      var m = /^(\s*)([\s\S]*?)(\s*)$/.exec(node.nodeValue);
+      var parent = node.parentNode;
+      var bdi = document.createElement("bdi");
+      node.nodeValue = m[2];
+      parent.insertBefore(bdi, node);
+      bdi.appendChild(node);
+      if (m[1]) parent.insertBefore(document.createTextNode(m[1]), bdi);
+      if (m[3]) parent.insertBefore(document.createTextNode(m[3]), bdi.nextSibling);
+    });
+  }
+
   /* ---------------- Mobile nav ---------------- */
   function initMobileMenu() {
     var toggle = document.getElementById("nav-toggle");
@@ -118,7 +185,10 @@
 
     function go(i) {
       index = (i + slides) % slides;
-      track.style.transform = "translateX(-" + index * 100 + "%)";
+      // In RTL the first slide sits on the right, so the track must slide the
+      // opposite way to reveal the next one.
+      var dirSign = document.documentElement.getAttribute("dir") === "rtl" ? 1 : -1;
+      track.style.transform = "translateX(" + (dirSign * index * 100) + "%)";
       if (dotsWrap) {
         Array.prototype.forEach.call(dotsWrap.children, function (dot, di) {
           dot.classList.toggle("bg-teal-600", di === index);
@@ -144,6 +214,9 @@
 
     go(0);
     setInterval(function () { go(index + 1); }, 6000);
+    // Re-position when the visitor flips LTR/RTL
+    new MutationObserver(function () { go(index); })
+      .observe(document.documentElement, { attributes: true, attributeFilter: ["dir"] });
   }
 
   /* ---------------- Scroll reveal ---------------- */
@@ -177,22 +250,166 @@
   }
 
   /* ---------------- Forms (booking / contact / login / register / newsletter) ---------------- */
+  var NAME_RE = /^[\p{L}\p{M}]+(?:[ '’.\-][\p{L}\p{M}]+)*\.?$/u;
+  var EMAIL_RE = /^[A-Za-z0-9._%+\-]+@(?:[A-Za-z0-9](?:[A-Za-z0-9\-]{0,61}[A-Za-z0-9])?\.)+[A-Za-z]{2,}$/;
+
+  var validators = {
+    name: function (v) {
+      if (/\d/.test(v)) return "Names cannot contain numbers.";
+      if (v.replace(/[^\p{L}]/gu, "").length < 2) return "Please enter at least 2 letters.";
+      if (v.length > 50) return "Please keep this under 50 characters.";
+      if (!NAME_RE.test(v)) return "Use letters, spaces, hyphens or apostrophes only.";
+      return "";
+    },
+    email: function (v) {
+      if (v.length > 254 || v.indexOf("..") !== -1 || !EMAIL_RE.test(v) || /^\.|\.@/.test(v)) {
+        return "Please enter a valid email address, e.g. name@example.com.";
+      }
+      return "";
+    },
+    phone: function (v) {
+      if (!/^\+?[0-9\s().\-]+$/.test(v)) return "Phone numbers can only contain digits, spaces, + ( ) and -.";
+      var opens = (v.match(/\(/g) || []).length;
+      var closes = (v.match(/\)/g) || []).length;
+      if (opens !== closes || opens > 1) return "Please check the brackets in the phone number.";
+      var digits = v.replace(/\D/g, "");
+      if (v.charAt(0) === "+") {
+        if (digits.length < 8 || digits.length > 15 || digits.charAt(0) === "0") {
+          return "Enter a valid international number, e.g. +1 555 210 7744.";
+        }
+        return /^(\d)\1+$/.test(digits) ? "Please enter a real phone number." : "";
+      }
+      if (digits.length === 11 && digits.charAt(0) === "1") digits = digits.slice(1);
+      if (digits.length !== 10) return "Phone number must be 10 digits, e.g. (555) 210-7744.";
+      if (/^[01]/.test(digits) || /^[01]/.test(digits.slice(3))) return "That doesn't look like a valid phone number.";
+      if (/^(\d)\1+$/.test(digits)) return "Please enter a real phone number.";
+      return "";
+    },
+    password: function (v) {
+      if (v.length < 8) return "Password must be at least 8 characters.";
+      if (!/[a-z]/.test(v) || !/[A-Z]/.test(v)) return "Include both uppercase and lowercase letters.";
+      if (!/\d/.test(v)) return "Include at least one number.";
+      if (!/[^A-Za-z0-9\s]/.test(v)) return "Include at least one symbol, e.g. ! @ # $.";
+      if (/\s/.test(v)) return "Password cannot contain spaces.";
+      return "";
+    }
+  };
+
+  function fieldType(field) {
+    var t = field.getAttribute("data-v");
+    if (t) return t;
+    if (field.type === "email") return "email";
+    if (field.type === "tel") return "phone";
+    return "";
+  }
+
+  /* Returns "" when the field is fine, otherwise the message to show. */
+  function fieldMessage(field, form) {
+    if (field.type === "checkbox") {
+      if (!field.required) return "";
+      return field.checked ? "" : (field.getAttribute("data-msg-required") || "Please tick this box to continue.");
+    }
+    var raw = field.value;
+    var value = field.type === "password" ? raw : raw.trim();
+    var requiredMsg = field.getAttribute("data-msg-required") || field._defaultMsg || "This field is required.";
+    if (!value) return field.required ? requiredMsg : "";
+
+    var type = fieldType(field);
+    if (type && validators[type]) {
+      var msg = validators[type](value);
+      if (msg) return msg;
+    }
+    var matchSel = field.getAttribute("data-match");
+    if (matchSel) {
+      var other = form.querySelector(matchSel);
+      if (other && other.value !== raw) return "Passwords do not match.";
+    }
+    if (field.validity && field.validity.rangeUnderflow) return "Please choose today or a later date.";
+    if (!type && !field.checkValidity()) return field._defaultMsg || requiredMsg;
+    return "";
+  }
+
+  function errorElFor(field) {
+    if (field._errorEl) return field._errorEl;
+    var host = field.parentElement;
+    var el = host.querySelector(".field-error");
+    if (!el && field.type === "checkbox") {
+      var next = host.nextElementSibling;
+      if (next && next.classList.contains("field-error")) el = next;
+    }
+    if (!el) {
+      el = document.createElement("p");
+      el.className = "field-error hidden text-xs text-red-500 mt-1";
+      var form = field.form;
+      if (host === form) form.insertAdjacentElement("afterend", el);
+      else host.appendChild(el);
+    }
+    if (!el.id) el.id = "err-" + (field.id || field.name || Math.random().toString(36).slice(2, 8));
+    field._errorEl = el;
+    field._defaultMsg = el.textContent.trim();
+    field.setAttribute("aria-describedby", el.id);
+    return el;
+  }
+
+  function showFieldState(field, message) {
+    var el = errorElFor(field);
+    var bad = !!message;
+    if (bad) el.textContent = message;
+    el.classList.toggle("hidden", !bad);
+    field.setAttribute("aria-invalid", bad ? "true" : "false");
+    if (field.type !== "checkbox") {
+      field.classList.toggle("border-red-500", bad);
+      field.classList.toggle("border-slate-300", !bad);
+    }
+  }
+
   function initForms() {
     document.querySelectorAll("form[data-validate]").forEach(function (form) {
       var successBox = form.parentElement.querySelector("[data-form-success]");
       var isCommentForm = form.hasAttribute("data-comment-form");
+      var fields = Array.prototype.slice.call(form.querySelectorAll("input, select, textarea")).filter(function (f) {
+        return f.type !== "hidden" && f.type !== "submit" && f.type !== "button";
+      });
+
+      fields.forEach(function (field) {
+        errorElFor(field); // capture default message + wire aria
+        if (field.type === "date") {
+          var d = new Date();
+          var pad = function (n) { return (n < 10 ? "0" : "") + n; };
+          field.min = d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate());
+        }
+        var check = function () { showFieldState(field, fieldMessage(field, form)); };
+        // Validate when leaving a field, then keep it live while the user corrects it.
+        field.addEventListener("blur", function () {
+          if (field.type !== "password" && field.type !== "checkbox" && field.tagName !== "SELECT") {
+            var tidy = field.value.replace(/\s+/g, " ").trim();
+            if (tidy !== field.value && field.type !== "date") field.value = tidy;
+          }
+          field._touched = true;
+          check();
+        });
+        var live = function () {
+          if (field._touched || (field._errorEl && !field._errorEl.classList.contains("hidden"))) check();
+          var mirror = form.querySelector('[data-match="#' + field.id + '"]');
+          if (mirror && mirror.value) showFieldState(mirror, fieldMessage(mirror, form));
+        };
+        field.addEventListener("input", live);
+        field.addEventListener("change", live);
+      });
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
-        var valid = true;
-        form.querySelectorAll("[required]").forEach(function (field) {
-          var errorEl = field.parentElement.querySelector(".field-error");
-          var fieldValid = field.checkValidity();
-          if (!fieldValid) valid = false;
-          field.classList.toggle("border-red-500", !fieldValid);
-          field.classList.toggle("border-slate-300", fieldValid);
-          if (errorEl) errorEl.classList.toggle("hidden", fieldValid);
+        var firstBad = null;
+        fields.forEach(function (field) {
+          var msg = fieldMessage(field, form);
+          field._touched = true;
+          showFieldState(field, msg);
+          if (msg && !firstBad) firstBad = field;
         });
-        if (!valid) return;
+        if (firstBad) {
+          try { firstBad.focus(); } catch (err) { /* ignore */ }
+          return;
+        }
 
         if (isCommentForm) {
           addComment(form);
@@ -200,6 +417,7 @@
         }
 
         form.reset();
+        fields.forEach(function (f) { f._touched = false; showFieldState(f, ""); f.removeAttribute("aria-invalid"); });
         form.classList.add("hidden");
         if (successBox) successBox.classList.remove("hidden");
       });
@@ -245,28 +463,62 @@
     }
   }
 
-  /* ---------------- Phone field guard (block letters/symbols) ---------------- */
+  /* ---------------- Input guards: stop invalid characters at the keyboard ---------------- */
+  /* Phone fields accept digits, one leading "+", spaces, ( ) - and . only;
+     name fields (data-v="name") reject digits and symbols. Typing or pasting
+     a blocked character is dropped and a short inline hint explains why. */
   function initPhoneGuard() {
-    var allowedKeys = ["Backspace", "Delete", "Tab", "Enter", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"];
-    document.querySelectorAll("[data-phone-guard]").forEach(function (field) {
+    var navKeys = ["Backspace", "Delete", "Tab", "Enter", "Escape", "ArrowLeft", "ArrowRight", "ArrowUp", "ArrowDown", "Home", "End"];
+
+    function flash(field, message) {
+      var el = errorElFor(field);
+      el.textContent = message;
+      el.classList.remove("hidden");
+      field.classList.add("border-red-500");
+      field.classList.remove("border-slate-300");
+      window.clearTimeout(field._flashTimer);
+      field._flashTimer = window.setTimeout(function () {
+        var msg = fieldMessage(field, field.form);
+        if (field._touched || msg) showFieldState(field, field._touched ? msg : "");
+        else showFieldState(field, "");
+      }, 1800);
+    }
+
+    function cleanPhone(text) {
+      var out = text.replace(/[^0-9+()\-\s.]/g, "");
+      // "+" is only valid as the first character
+      return out.charAt(0) === "+" ? "+" + out.slice(1).replace(/\+/g, "") : out.replace(/\+/g, "");
+    }
+    function cleanName(text) {
+      return text.replace(/[^\p{L}\p{M}\s'’.\-]/gu, "");
+    }
+
+    function attach(field, cleaner, keyRe, hint) {
       field.addEventListener("keydown", function (e) {
-        if (allowedKeys.indexOf(e.key) !== -1 || e.ctrlKey || e.metaKey) return;
-        if (!/^[0-9+()\-\s]$/.test(e.key)) {
-          e.preventDefault();
-        }
+        if (navKeys.indexOf(e.key) !== -1 || e.ctrlKey || e.metaKey || e.altKey || e.key.length !== 1) return;
+        if (!keyRe.test(e.key)) { e.preventDefault(); flash(field, hint); }
       });
       field.addEventListener("input", function () {
-        var cleaned = field.value.replace(/[^0-9+()\-\s]/g, "");
-        if (cleaned !== field.value) field.value = cleaned;
+        var cleaned = cleaner(field.value);
+        if (cleaned !== field.value) { field.value = cleaned; flash(field, hint); }
       });
       field.addEventListener("paste", function (e) {
+        var data = (e.clipboardData || window.clipboardData);
+        if (!data) return;
         e.preventDefault();
-        var text = (e.clipboardData || window.clipboardData).getData("text");
-        var cleaned = text.replace(/[^0-9+()\-\s]/g, "");
-        var start = field.selectionStart || field.value.length;
-        var end = field.selectionEnd || field.value.length;
-        field.value = field.value.slice(0, start) + cleaned + field.value.slice(end);
+        var text = cleaner(data.getData("text"));
+        var start = field.selectionStart == null ? field.value.length : field.selectionStart;
+        var end = field.selectionEnd == null ? field.value.length : field.selectionEnd;
+        field.value = cleaner(field.value.slice(0, start) + text + field.value.slice(end)).slice(0, field.maxLength > 0 ? field.maxLength : undefined);
+        field.dispatchEvent(new Event("input", { bubbles: true }));
       });
+    }
+
+    document.querySelectorAll("[data-phone-guard]").forEach(function (field) {
+      attach(field, cleanPhone, /^[0-9+()\-\s.]$/, "Only digits, + ( ) and - are allowed here.");
+    });
+    document.querySelectorAll('[data-v="name"]').forEach(function (field) {
+      attach(field, cleanName, /^[\p{L}\p{M}\s'’.\-]$/u, "Numbers and symbols are not allowed in names.");
     });
   }
 

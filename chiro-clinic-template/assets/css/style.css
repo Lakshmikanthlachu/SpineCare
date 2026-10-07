@@ -197,6 +197,32 @@ h1, h2, h3, h4, h5, h6, .font-display {
   box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.35);
 }
 
+/* ---------- Header responsiveness ----------
+   The full desktop nav shows from 1100px up (so ordinary laptop viewports —
+   including Windows 125% display scaling in Edge/Chrome, which gives
+   ~1100px — never collapse into the hamburger; 1100 leaves room for a
+   17px classic scrollbar). Between 1100px and 1359px
+   the header switches to a compact layout (tagline hidden, tighter nav
+   gaps, icon-only login button) so logo + nav + actions always fit. */
+.nd-block, .nd-grid, .nd-inline-flex { display: none; }
+@media (min-width: 1100px) {
+  .nd-block { display: block; }
+  .nd-grid { display: grid; }
+  .nd-inline-flex { display: inline-flex; }
+  .nm-hide { display: none !important; }
+}
+@media (min-width: 1100px) {
+  .site-nav > ul { gap: 1.5rem; }
+}
+@media (min-width: 1100px) and (max-width: 1359px) {
+  .site-nav > ul { gap: 1rem; font-size: 0.8125rem; }
+  .nav-tagline { display: none !important; }
+  .nav-login { width: 2.5rem; height: 2.5rem; padding: 0 !important; justify-content: center; }
+  .nav-login .nav-login-label { display: none; }
+  .nav-login i { font-size: 0.875rem; }
+  .nav-book { padding-left: 0.875rem !important; padding-right: 0.875rem !important; }
+}
+
 /* ---------- Skeleton / utility ---------- */
 .glass {
   backdrop-filter: blur(10px);
@@ -318,3 +344,127 @@ select:focus-visible {
   .card-hover:hover, .tilt-hover:hover, .btn-3d:hover { transform: translateY(-4px); }
   .icon-pop, .group:hover .icon-pop { transition: none; }
 }
+
+/* ---------- Home 1 hero photo ----------
+   Landscape crop keeps the photo vertically balanced with the headline
+   column; a soft bottom gradient + mild contrast boost make the subject
+   read clearly. Stacked (<1024px) the photo is flush with the text column
+   and the floating card overlaps its bottom edge; side-by-side (>=1024px)
+   the card tucks into the column gap without overhanging the headline. */
+.hero-photo-wrap {
+  position: relative;
+  padding: 0 0 1.75rem 0;
+}
+.hero-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  object-position: center 35%;
+  border-radius: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(15, 47, 44, 0.35);
+  outline: 1px solid rgba(15, 47, 44, 0.08);
+  filter: contrast(1.06) saturate(1.06);
+}
+.hero-photo-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 1.75rem 0;
+  border-radius: 2rem;
+  background: linear-gradient(to top, rgba(15, 47, 44, 0.38), rgba(15, 47, 44, 0) 45%);
+  pointer-events: none;
+  z-index: 1;
+}
+.hero-photo-card {
+  position: absolute;
+  left: 1rem;
+  bottom: 0;
+  z-index: 2;
+}
+[dir="rtl"] .hero-photo-card { left: auto; right: 1rem; }
+@media (min-width: 1024px) {
+  .hero-photo-wrap { padding: 0 0 1.75rem 1.75rem; }
+  .hero-photo-wrap::before { inset: 0 0 1.75rem 1.75rem; }
+  .hero-photo-card { left: 0; }
+  [dir="rtl"] .hero-photo-wrap { padding: 0 1.75rem 1.75rem 0; }
+  [dir="rtl"] .hero-photo-wrap::before { inset: 0 1.75rem 1.75rem 0; }
+  [dir="rtl"] .hero-photo-card { left: auto; right: 0; }
+}
+
+/* ==========================================================================
+   RTL support
+   The compiled Tailwind build only contains a handful of `rtl:` variants, so
+   physical-direction utilities (margins, text-align, corner radii, hover
+   nudges) are mirrored here. Layout itself mirrors automatically through
+   dir="rtl" on <html> (flex/grid order), and main.js wraps numbers, phone
+   numbers and e-mail addresses in <bdi> so they never get reordered.
+   ========================================================================== */
+
+/* Icon-before-text spacing */
+[dir="rtl"] .mr-1\.5 { margin-right: 0; margin-left: 0.375rem; }
+[dir="rtl"] .mr-2 { margin-right: 0; margin-left: 0.5rem; }
+[dir="rtl"] .ml-auto { margin-left: 0; margin-right: auto; }
+
+/* Text alignment utilities are physical in Tailwind — swap them */
+[dir="rtl"] .text-left { text-align: right; }
+[dir="rtl"] .text-right { text-align: left; }
+@media (min-width: 640px) {
+  [dir="rtl"] .sm\:text-left { text-align: right; }
+}
+@media (min-width: 1024px) {
+  [dir="rtl"] .lg\:text-left { text-align: right; }
+  [dir="rtl"] .lg\:text-right { text-align: left; }
+}
+
+/* Joined input + button pairs: round the outer corners on the mirrored side */
+[dir="rtl"] .rounded-l-full { border-radius: 0 9999px 9999px 0; }
+[dir="rtl"] .rounded-r-full { border-radius: 9999px 0 0 9999px; }
+
+/* Hover nudges (arrow slides toward the reading direction) */
+[dir="rtl"] .group:hover .group-hover\:translate-x-1 { --tw-translate-x: -0.25rem; }
+
+/* Text arrows (e.g. "Profile →") must point the other way */
+[dir="rtl"] .dir-arrow { display: inline-block; transform: scaleX(-1); }
+
+/* Latin-script values inside form fields stay LTR but sit on the start edge */
+[dir="rtl"] input[type="email"],
+[dir="rtl"] input[type="tel"],
+[dir="rtl"] input[type="url"],
+[dir="rtl"] input[type="search"],
+[dir="rtl"] input[type="password"] {
+  direction: ltr;
+  text-align: right;
+}
+
+/* Sentences whose last character is punctuation (".", "!", ")", quotes…)
+   would otherwise render with that mark at the wrong end of the line when
+   Latin text sits inside an RTL paragraph. A trailing LRM anchors it. */
+[dir="rtl"] :is(p, h1, h2, h3, h4, h5, h6, blockquote, figcaption, label, dd, dt):not(.flex):not(.inline-flex):not(.grid):not(.line-clamp-2)::after {
+  content: "\200E";
+}
+bdi { unicode-bidi: isolate; }
+
+/* Prose list items (blog posts, legal pages, service details): anchor the
+   trailing punctuation and keep "1." markers in numeric order. */
+[dir="rtl"] ol.list-decimal > li::after {
+  content: "\200E";
+}
+[dir="rtl"] ol > li::marker { direction: ltr; unicode-bidi: isolate; }
+
+/* Card titles reserve two lines on multi-column layouts so the description
+   below them starts on the same line in every card of a row. */
+@media (min-width: 640px) {
+  .title-2line { min-height: 2.75em; }
+}
+
+/* Absolutely-positioned decorations anchored to a physical side */
+[dir="rtl"] .-right-6 { right: auto; left: -1.5rem; }
+[dir="rtl"] .-left-8 { left: auto; right: -2rem; }
+[dir="rtl"] .left-10 { left: auto; right: 2.5rem; }
+[dir="rtl"] .left-4.top-1\/2 { left: auto; right: 1rem; }
+[dir="rtl"] .right-4.top-1\/2 { right: auto; left: 1rem; }
+[dir="rtl"] .right-4.bottom-4 { right: auto; left: 1rem; }
+
+/* Hero stat row: drop the trailing divider when the rating wraps to its own line */
+@media (max-width: 639px) { .stat-div-late { display: none; } }

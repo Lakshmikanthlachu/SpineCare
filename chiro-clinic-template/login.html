@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=14">
-  <link rel="stylesheet" href="assets/css/style.css?v=14">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=15">
+  <link rel="stylesheet" href="assets/css/style.css?v=15">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -97,7 +97,7 @@
         <form data-validate class="mt-8 space-y-5" onsubmit="return false;" novalidate>
           <div class="">
             <label for="login-email" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Email Address <span class="text-red-500">*</span></label>
-            <input type="email" id="login-email" name="login-email" required
+            <input type="email" id="login-email" name="login-email" required autocomplete="email" data-msg-required="Please enter your email address."
               class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
             <p class="field-error hidden text-xs text-red-500 mt-1">This field is required.</p>
           </div>
@@ -137,6 +137,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/js/main.js?v=15"></script>
 </body>
 </html>

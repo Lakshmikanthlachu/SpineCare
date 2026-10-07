@@ -24,8 +24,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
-  <link rel="stylesheet" href="assets/css/tailwind.css?v=14">
-  <link rel="stylesheet" href="assets/css/style.css?v=14">
+  <link rel="stylesheet" href="assets/css/tailwind.css?v=15">
+  <link rel="stylesheet" href="assets/css/style.css?v=15">
 
 </head>
 <body class="bg-stone-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 antialiased">
@@ -54,11 +54,11 @@
           </span>
           <span class="font-display leading-tight min-w-0 truncate">
             <span class="block text-base sm:text-lg font-semibold text-slate-900 dark:text-white truncate">Vertebra & Vitality</span>
-            <span class="hidden sm:block text-[10px] tracking-[0.18em] uppercase text-gold-600 dark:text-gold-400">Chiropractic &amp; Spine Care</span>
+            <span class="nav-tagline hidden sm:block text-[10px] tracking-[0.18em] uppercase text-gold-600 dark:text-gold-400">Chiropractic &amp; Spine Care</span>
           </span>
         </a>
 
-        <nav class="hidden xl:block" aria-label="Primary">
+        <nav class="nd-block site-nav" aria-label="Primary">
           <ul class="flex items-center gap-7 text-sm">
             <li class="relative group">
               <button type="button" class="flex items-center gap-1.5 text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors" aria-haspopup="true">
@@ -71,6 +71,7 @@
                 </div>
               </div>
             </li>
+            <li><a href="about.html" class="text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">About Us</a></li>
             <li><a href="services.html" class="text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Services</a></li>
             <li><a href="doctors.html" class="text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Doctors</a></li>
             <li><a href="testimonials.html" class="text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Testimonials</a></li>
@@ -80,7 +81,6 @@
               </button>
               <div class="invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 focus-within:visible focus-within:opacity-100 transition-all duration-200 absolute left-0 rtl:left-auto rtl:right-0 top-full pt-3 w-52">
                 <div class="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl shadow-xl shadow-slate-900/10 py-2 overflow-hidden whitespace-nowrap">
-                  <a href="about.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">About Us</a>
               <a href="blog.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Blog</a>
               <a href="pricing.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 hover:text-teal-700 dark:hover:text-gold-400 transition-colors">Pricing</a>
                 </div>
@@ -97,17 +97,17 @@
             <i data-icon="sun" class="fa-solid fa-sun hidden"></i>
           </button>
           <button data-dir-toggle type="button" aria-label="Toggle RTL / LTR layout" title="Toggle RTL / LTR"
-            class="hidden xl:grid h-10 w-10 rounded-full place-items-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            class="nd-grid h-10 w-10 rounded-full place-items-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
             <i class="fa-solid fa-right-left"></i>
           </button>
-          <a href="login.html" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap border border-teal-700/30 dark:border-gold-400/30 text-teal-700 dark:text-gold-400 hover:bg-teal-50 dark:hover:bg-slate-800 text-sm font-semibold px-4 py-2 rounded-full transition-colors shrink-0">
-            <i class="fa-solid fa-user text-xs"></i> Login / Register
+          <a href="login.html" aria-label="Login / Register" title="Login / Register" class="nd-inline-flex nav-login items-center gap-1.5 whitespace-nowrap border border-teal-700/30 dark:border-gold-400/30 text-teal-700 dark:text-gold-400 hover:bg-teal-50 dark:hover:bg-slate-800 text-sm font-semibold px-4 py-2 rounded-full transition-colors shrink-0">
+            <i class="fa-solid fa-user text-xs"></i> <span class="nav-login-label">Login / Register</span>
           </a>
-          <a href="contact.html" class="hidden xl:inline-flex items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
+          <a href="contact.html" class="nd-inline-flex nav-book items-center gap-1.5 whitespace-nowrap bg-gradient-to-r from-teal-700 to-teal-600 hover:from-teal-800 hover:to-teal-700 text-white text-sm font-semibold px-4 py-2 rounded-full shadow-lg shadow-teal-700/25 ring-1 ring-gold-400/30 transition-all shrink-0">
             <i class="fa-solid fa-calendar-check text-xs"></i> Book Now
           </a>
           <button id="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" type="button"
-            class="xl:hidden h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
+            class="nm-hide h-9 w-9 sm:h-10 sm:w-10 rounded-full grid place-items-center text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">
             <i data-icon="menu-open" class="fa-solid fa-bars"></i>
             <i data-icon="menu-close" class="fa-solid fa-xmark hidden"></i>
           </button>
@@ -115,16 +115,16 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="xl:hidden border-t border-slate-100 dark:border-slate-800">
+    <div id="mobile-menu" class="nm-hide border-t border-slate-100 dark:border-slate-800">
       <div class="px-4 py-4 space-y-4">
         <div class="space-y-1">
           <a href="index.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Home 1</a>
           <a href="home2.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Home 2</a>
+          <a href="about.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">About Us</a>
           <a href="services.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Services</a>
           <a href="doctors.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Doctors</a>
           <a href="testimonials.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Testimonials</a>
           <a href="contact.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Contact</a>
-          <a href="about.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">About Us</a>
           <a href="blog.html" class="block py-2.5 px-4 rounded-lg text-teal-700 dark:text-gold-400 font-semibold bg-teal-50 dark:bg-slate-800 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Blog</a>
           <a href="pricing.html" class="block py-2.5 px-4 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-teal-50 dark:hover:bg-slate-800 transition-colors">Pricing</a>
         </div>
@@ -332,7 +332,7 @@
           <div class="grid sm:grid-cols-2 gap-5 text-left">
             <div class="">
             <label for="comment-name" class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1.5">Name <span class="text-red-500">*</span></label>
-            <input type="text" id="comment-name" name="comment-name" required
+            <input type="text" id="comment-name" name="comment-name" required data-v="name" maxlength="50" data-msg-required="Please enter your name."
               class="w-full rounded-xl border border-slate-300 dark:border-slate-700 dark:bg-slate-900 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500" />
             <p class="field-error hidden text-xs text-red-500 mt-1">This field is required.</p>
           </div>
@@ -416,7 +416,7 @@
 
     <div class="border-t border-slate-800">
       <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
-        <p>&copy; <span data-year></span> Vertebra & Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</p>
+        <p><bdi>&copy; <span data-year></span> Vertebra &amp; Vitality Chiropractic &amp; Spine Care Clinic. All rights reserved.</bdi></p>
         <div class="flex items-center gap-5">
           <a href="privacy-policy.html" class="hover:text-gold-400">Privacy Policy</a>
           <a href="terms-of-service.html" class="hover:text-gold-400">Terms of Service</a>
@@ -431,6 +431,6 @@
     <i class="fa-solid fa-arrow-up"></i>
   </button>
 
-  <script src="assets/js/main.js?v=14"></script>
+  <script src="assets/js/main.js?v=15"></script>
 </body>
 </html>
