@@ -468,3 +468,38 @@ bdi { unicode-bidi: isolate; }
 
 /* Hero stat row: drop the trailing divider when the rating wraps to its own line */
 @media (max-width: 639px) { .stat-div-late { display: none; } }
+
+/* ---------- Inner-page hero photo overlay ----------
+   Tailwind's opacity-stop gradient utilities (from-white/70 …) are not in the
+   pre-compiled tailwind.css, and the dark variant inherited an opaque
+   slate-900 → slate-950 gradient from the section, completely hiding the
+   photo in dark mode. Defined explicitly here so the photo stays visible in
+   both themes while headings remain readable. */
+.page-hero-overlay {
+  background-image: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.52) 0%,
+    rgba(255, 255, 255, 0.46) 60%,
+    rgba(255, 255, 255, 0.78) 100%);
+}
+.dark .page-hero-overlay {
+  background-image: linear-gradient(to bottom,
+    rgba(2, 6, 23, 0.50) 0%,
+    rgba(2, 6, 23, 0.58) 60%,
+    rgba(2, 6, 23, 0.82) 100%);
+}
+
+/* Text over the hero photo: lift contrast of the small breadcrumb / eyebrow / subtitle lines */
+.page-hero-text .text-slate-500 { color: #334155; }
+.page-hero-text .text-slate-600 { color: #1e293b; }
+.dark .page-hero-text .text-slate-500 { color: #cbd5e1; }
+.dark .page-hero-text .text-slate-400,
+.dark .page-hero-text .dark\:text-slate-400 { color: #e2e8f0; }
+.dark .page-hero-text .text-teal-600 { color: #5eead4; }
+
+/* About hero: keep people in frame when the wide banner crops a taller photo */
+.hero-img-top { object-position: center 30%; }
+
+/* Inner-page hero banner: one shared size and even top/bottom breathing room on every page */
+.hero-tall { display: flex; align-items: center; min-height: 22rem; }
+.hero-tall > .page-hero-text { width: 100%; padding-top: 5rem; padding-bottom: 5rem; }
+@media (min-width: 1024px) { .hero-tall { min-height: 28rem; } }
